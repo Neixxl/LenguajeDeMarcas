@@ -1,0 +1,20 @@
+main{
+    font-weight: lighter;
+}
+
+div table th, tr{
+padding: 10px;
+text-align: center;
+border:1px;
+border-style: solid;
+border-color: gray;
+border-collapse: collapse;
+white-space:nowrap;
+
+}
+
+div table tr:first-child{
+    font-weight: bold;
+    background-color:yellowgreen;
+    color: white;
+}

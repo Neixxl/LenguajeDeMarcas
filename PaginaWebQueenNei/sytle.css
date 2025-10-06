@@ -58,7 +58,7 @@ div.listaintegrantes ul{
     padding-left: 20px;
 }
 
-div.tablaexitos table, th, td{
+div.tablaexitos table, th, tr{
     border-collapse: collapse;
     margin-bottom: 20px;
     margin-left: auto; /* no se si esto esta bien :/ */
