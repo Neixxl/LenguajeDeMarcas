@@ -1,0 +1,89 @@
+body{
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #F0F0F0;
+    height: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    padding-left: auto;
+    padding-right: auto;
+}
+
+
+h1,h2{
+    font-family: Georgia, serif;
+    color: #2C3E50;
+}
+
+main{
+    background-color: #FFF;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    flex: 1;
+    
+}
+
+footer{
+    color: #7F8C8D;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+div.imagenbanda{
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+div.imagenbanda img{
+    border-radius: 10px;
+}
+
+div.listaintegrantes ul{
+    list-style: disc;
+    padding-left: 20px;
+}
+
+div.tablaexitos table, th, td{
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    margin-left: auto; /* no se si esto esta bien :/ */
+    margin-right: auto; /* no se si esto esta bien :/ */
+    border-width: 1px;
+    border-style: solid;
+    border-color: #DDD;
+    padding: 10px;
+    text-align: left;
+    white-space: nowrap;
+}
+div.tablaexitos tr:first-child{
+    background-color: #2C3E50;
+    color: white;
+    text-align: center;
+}
+
+div.enlaceweb a{
+color: #E74C3C;
+text-decoration: none;
+font-weight:bold;
+}
+
+div.enlaceweb a:hover{
+    color: #C0392B;
+}
+
+

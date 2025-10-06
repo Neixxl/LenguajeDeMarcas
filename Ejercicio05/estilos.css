@@ -1,0 +1,39 @@
+.formato-texto {
+    color: white;
+    font-size: 20px;
+    position: relative;
+    top: 20px;
+}
+
+div{ /*esto es la configuracion para todos los rectangulos default*/
+    background-color: #464646;
+    float: left;
+    margin-top: 20px;
+    margin-right: 40px;
+    height: 65px;
+    width: 160px;
+    text-align: center;
+}
+div.a{
+    border-bottom-right-radius: 100px;
+}
+div.b{
+    border-top-left-radius: 50px;
+}
+div.c{
+    border-radius: 20px;
+}
+div.d{
+    border-bottom-right-radius: 100px;
+    border-top-left-radius: 100px;
+}
+div.f{
+    height: 65px;
+    width: 65px;
+    border-radius: 100%;
+}
+div.g{
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 50px;
+}

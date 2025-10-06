@@ -1,0 +1,20 @@
+img.raton{
+    max-width: 100%;
+}
+div{
+    width: 300px;
+    padding: 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 3%;
+    border-color: gray;
+    box-shadow: 1px 1px 3px gray;
+    background-color:azure;
+    text-align: center;
+}
+p.descripcion{
+    color:gray;
+}
+p.precio{
+    color:red;
+}
