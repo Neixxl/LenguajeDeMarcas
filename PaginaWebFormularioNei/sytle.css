@@ -1,0 +1,86 @@
+
+body{
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    box-sizing: border-box;
+    min-height: 100vh;
+}
+
+
+/*CABECERA*/
+header{
+    vertical-align: middle;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem;
+}
+header img{
+    max-width: 300px;
+    max-height: 110px;
+}
+
+/*CUERPO*/
+main{
+    padding: 2rem;
+    flex:1
+}
+/*FORMULARIO*/
+fieldset{
+background-color:#F4F1ED;
+color: firebrick;
+border-color: darkgoldenrod;
+border-radius: 7px;
+max-width: 400px;
+padding: 10px;
+}
+legend{
+    color: darkblue;
+    font-weight: bold;
+}
+form{
+    flex-direction: column;
+    display: flex;
+    gap:10px;
+    margin-bottom: 0px;
+}
+div.elementoFormulario{
+    flex-direction: row;
+    vertical-align: middle;
+    align-items: center;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+
+div.elementoFormulario:nth-last-child(2){
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items:start;
+}
+
+div.elementoFormulario:last-child{
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+
+
+/*PIE DE PAGINA*/
+footer{
+background-color: #333;
+color: white;
+text-align: center;
+padding: 5px;
+}
+footer h3{
+    color: #F7C600;
+}
+footer img{
+    max-width: 48px;
+    max-height: 48px;
+}

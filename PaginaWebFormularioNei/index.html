@@ -1,0 +1,73 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Neiza
+    n del Rio">
+    <title> formulario </title>
+    <link rel="stylesheet" href="sytle.css">
+</head>
+
+<body>
+    <header>
+        <a href="https://fpalanturing.es/"><img src="images/logo.jpg" alt="logo alan turing"></a>
+    </header>
+    <main>
+        <fieldset>
+            <legend> Nueva incidencia </legend>
+            <form action="/send/" method="post">
+                <div class="elementoFormulario">
+                    <label for="profesor">Profesor*:</label>
+                    <input type="text" id="profesor" name="profesor" placeholder="Escribe tu nombre aquí." required>
+                </div>
+                <div class="elementoFormulario">
+                    <label for="email">Correo electronico*:</label>
+                    <input type="email" id="email" name="email" placeholder="Escribe tu correo aquí." required>
+                </div>
+                <div class="elementoFormulario">
+                    <label for="departamento">Departamento*:</label>
+                    <select id="departamento" name="departamento">
+                        <option value="informatica">Informatica</option>
+                        <option value="secretaria">Secretaria</option>
+                    </select>
+                </div>
+                <div class="elementoFormulario">
+                    <label for="aula">Aula*:</label>
+                    <input type="text" id="aula" name="aula" placeholder="Indica aqui el aula de la incidencia."
+                        required>
+                </div>
+                <div class="elementoFormulario">
+                    <label for="fecha">Dia de la incidencia*:</label>
+                    <input type="week" id="fecha" name="fecha" required>
+                </div>
+                <div class="elementoFormulario">
+                    <label for="hora">Hora de la incidencia*:</label>
+                    <input type="time" id="hora" name="hora" required>
+                </div>
+                <div class="elementoFormulario">
+                    <label for="descripcion">Descripcion de la incidencia*:</label>
+                    <textarea id="descripcion" name="descripcion" required></textarea>
+                </div>
+                <div class="elementoFormulario" class="imagenFormulario">
+                    <label for="imagen">Imagen de la incidencia(opcional):</label>
+                    <input type="file" id="imagen" name="imagen" accept="image/*">
+                </div>
+                <div class="elementoFormulario">
+                    <input type="submit" value="Enviar incidencia">
+                    <input type="reset" value="Borrar formulario">
+                </div>
+            </form>
+        </fieldset>
+    </main>
+    <footer>
+        <h3>Siguenos</h3>
+        <a href="https://www.facebook.com/cpifpalanturing"><img src="images/facebook.png" alt="facebook"></a>
+        <a href="https://twitter.com/cpifpalanturing"><img src="images/twitter.png" alt="twitter"></a>
+        <a href="https://www.instagram.com/cpifpalanturing/"><img src="images/insta.png" alt="instagram"></a>
+        <a href="https://www.youtube.com/@cpifpalanturing"><img src="images/youtube.png" alt="youtube"></a>
+        <a href="https://fpalanturing.es/"><img src="images/website.png" alt="pagina web"></a>
+
+    </footer>
+</body>
+
+</html>

@@ -23,7 +23,8 @@ header {
 header {
     margin: 0;
 }
-h1{
+
+h1 {
     text-align: center;
 }
 
@@ -32,7 +33,7 @@ main {
     padding: 2rem;
     margin-left: auto;
     margin-right: auto;
-    flex:1;
+    flex: 1;
 
 }
 
@@ -55,7 +56,8 @@ div.receta {
 div.imagenReceta {
     text-align: center;
 }
-div.imagenReceta img{
+
+div.imagenReceta img {
     margin-bottom: 20px;
     max-width: 100%;
     border-radius: 10px;
