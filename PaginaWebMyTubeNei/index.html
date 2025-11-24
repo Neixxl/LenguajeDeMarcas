@@ -1,0 +1,109 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Neizan del Rio">
+    <title> MyTube </title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Importar fuentes de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Montserrat&family=Oswald&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/youtube.svg" alt="logo youtube">
+            <h1>MyTube</h1>
+        </div>
+        <div class="buscador">
+            <input type="text" placeholder="Buscar...">
+            <button type="submit"><img src="images/search.svg" alt="lupa"></button>
+        </div>
+    </header>
+
+    <main>
+
+        <nav class="menuNav">
+            <ul>
+                <li> <img src="images/home.svg" alt=""><a href="">Inicio</a></li>
+                <li> <img src="images/trending-up.svg" alt="trending"><a href="">Tendencias</a></li>
+                <li> <img src="images/dollar-sign.svg" alt="dollar"><a href="">Suscripciones</a></li>
+                <li> <img src="images/book.svg" alt="book"><a href="">Biblioteca</a></li>
+                <li> <img src="images/thumbs-up.svg" alt="thumbsup"><a href="">Videos que me gustan</a></li>
+            </ul>
+        </nav>
+        <div class="contenido">
+            <section class="videos">
+
+                <div class="videoCard">
+                    <h2>Reproduccion de video local</h2>
+                    <video controls poster="images/poster.jpg">
+                        <source src="video/LinusTorvaldsNvidia.mp4" type="video/mp4">
+                    </video>
+                    <p>Linus Torvalds haciendo amigos</p>
+                </div>
+
+                <div class="videoCard">
+                    <h2>Reproduccion de video en Streaming</h2>
+                    <video controls autoplay muted>
+                        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4"
+                            type="video/mp4">
+                    </video>
+                    <p>Video en streaming que se reproduce automaticamente</p>
+                </div>
+
+                <div class="videoCard">
+                    <h2>Video de Youtube</h2>
+                    <iframe src="https://www.youtube.com/embed/Q123YDN4tKE"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                    <p>El podcast de mariano en aqui no hay quien viva</p>
+                </div>
+
+            </section>
+
+            <section class="audios">
+
+                <div class="audioCard">
+                    <h2>Reproductor de audio Local</h2>
+                    <audio controls>
+                        <source src="audio/Ramones - Spider-Man.mp3" type="audio/mp3">
+                    </audio>
+                    <p>Ramones -- Spider-Man</p>
+                </div>
+
+                <div class="audioCard">
+                    <h2>Reproductor de audio en Streaming</h2>
+                    <audio controls>
+                        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+                    </audio>
+                    <p>Audio en Streaming -- SoundHelix-Song-1</p>
+                </div>
+
+                <div class="audioCard">
+                    <h2>Reproductor de audio en Streaming - Radio Paradise (una
+                        emisora que ofrece una mezcla de rock, pop y otros géneros) </h2>
+                    <audio controls>
+                        <source src="http://stream.radioparadise.com/mp3-192" type="audio/mp3">
+                    </audio>
+                    <p>Radio Paradise</p>
+                </div>
+
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="copyright">
+            <p>&copy; 2024 MyTube. Todos los derechos reservados</p>
+        </div>
+        <div class="links">
+            <a href="">Facebook</a>
+            |
+            <a href="">Twitter</a>
+            |
+            <a href="">Instagram</a>
+            |
+            <a href="">Contacto</a>
+        </div>
+    </footer>
+</body>
