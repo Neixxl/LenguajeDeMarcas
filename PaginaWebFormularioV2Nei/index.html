@@ -1,0 +1,72 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Neizan del Rio">
+    <title>Formulario de Incidencia</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/logo.jpg" alt="logo del centro">
+        </div>
+    </header>
+    <main>
+        <fieldset>
+            <legend>Nueva incidencia</legend>
+            <form action="/procesarincidencia.php" method="post" enctype="multipart/form-data">
+                <div class="elementoFormulario">
+                    <label for="profesor">Profesor*</label>
+                    <input type="text" id="profesor" name="profesor" placeholder="Escribe tu nombre aqui." required>
+                </div>
+                <div class="elementoFormulario">
+                    <label for="email">Email*</label>
+                    <input type="email" id="email" name="email" placeholder="Escribe tu email aqui." required>
+                </div>
+                <div class="elementoFormulario">
+                    <label for="departamento">Departamento*</label required>
+                    <select name="departamento" id="departamento">
+                        <option value="Informatica">Informatica</option>
+                        <option value="Electronica">Electronica</option>
+                        <option value="DIOP">DIOP</option>
+                        <option value="Ingles Profesional">Ingles Profesional</option>
+                    </select>
+                </div>
+                <div class="elementoFormulario">
+                    <label for="aula">Aula*</label >
+                    <input type="number" id="aula" name="aula" placeholder="Indica el aula de incidencia" min="0" max="20" required>
+                </div>
+                <div class="elementoFormulario">
+                    <label for="fecha">Dia de Incidencia*</label>
+                    <input type="date" id="fecha" name="fecha" required>
+                </div>
+                <div class="elementoFormulario">
+                    <label for="hora">Hora de la incidencia*</label>
+                    <input type="time" id="hora" name="hora" required>
+                </div>
+                <div class="elementoFormulario">
+                    <label for="descripcion">Descripcion de la incidencia*</label>
+                    <textarea id="descripcion" name="descripcion"required></textarea>
+                </div>
+                <div class="elementoFormulario">
+                    <label for="imagen">Imagen de la incidencia</label>
+                    <input type="file" id="imagen" name="imagen" accept="image/png, image/jpeg">
+                </div>
+                <div class="botonesFormulario">
+                    <input type="submit" value="Enviar incidencia">
+                    <input type="reset" value="Borrar formulario">
+                </div>
+            </form>
+        </fieldset>
+    </main>
+    <footer>
+        <h3>Siguenos</h3>
+        <div class="redes">
+            <a href="https://facebook.com/cpifpalanturing"><img src="images/facebook.png" alt="facebook"></a>
+            <a href="https://x.com/cpifpalanturing"><img src="images/twitter.png" alt="twitter"></a>
+            <a href="https://instagram.com/cpifpalanturing"><img src="images/insta.png" alt="instagram"></a>
+            <a href="https://youtube.com/@cpifpalanturing"><img src="images/youtube.png" alt="youtube"></a>
+            <a href="https://fpalanturing.es"><img src="images/website.png" alt="website"></a>
+        </div>
+    </footer>
+</body>
