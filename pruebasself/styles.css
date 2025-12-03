@@ -1,0 +1,134 @@
+body{
+    margin: 0;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+header{
+    background-color: #235D79;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+main{
+    flex:1
+}
+
+.headerLogo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+.headerLogo img{
+    max-height: 75px;
+
+}
+
+.mainNav{
+margin: auto;
+background-color: #89BDA0;
+display: flex;
+}
+
+.mainNav ul{
+    display: flex;
+    flex-direction: row;
+    gap: 2.5rem;
+    list-style-type: none;
+    
+}
+
+.mainNav a{
+    text-decoration: none;
+    color: white;
+}
+
+.aboutUsMini{
+    border-radius: 10px;
+    margin: auto;
+    display: flex;
+    border: 2px;
+    border-style: solid;
+    min-height: 75px;
+    max-width: 65%;
+}
+
+
+.catSlider {
+    height: 400px;
+    width: 90%; 
+    margin: 20px auto; 
+    
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.imageCollage {
+    display: flex; 
+    height: 100%; 
+    width: max-content; 
+    padding: 10px 0;
+}
+
+.imageCard {
+    width: 300px;
+    height: 100%;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.imageCard img {
+    width: 90%; 
+    height: 60%;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.imageCardEnd {
+    width: 200px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+    text-align: center;
+    justify-content: center;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+footer{
+    background-color: #235D79;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+}
+.socials{
+    display: flex;
+    gap:20px;
+    justify-content: center;
+}
+footer a{
+    text-decoration: none;
+    color: #f9f9f9;
+}
+
+footer a:hover{
+    color: aquamarine;
+    transition-duration: 300ms;
+}
