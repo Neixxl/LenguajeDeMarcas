@@ -1,0 +1,495 @@
+/************************/
+/* Estilos para el body */
+/************************/
+
+    body {
+        /* Estos son los estilos que van a hacer que el body se configure correctamente */
+        min-height: 100vh;                  /* Asegura que la altura mínima de la página sea la del viewport (pantalla) */
+        margin: 0;                          /* Elimina el margen por defecto de todos los elementos */
+        padding: 0;
+        box-sizing: border-box;             /* Asegura que el padding y los bordes no aumenten el ancho/alto total del elemento */
+        display: flex;                      /* Utiliza Flexbox para alinear los elementos de la lista en una fila */
+        flex-direction: column;             /* Alinea los hijos (cabecera, navegación, etc.) verticalmente */
+        /********************************************************************************/
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #f5f5f5;
+        color: #333;
+    }
+
+    section h2,
+    section p {
+        text-align: center;
+    }
+
+/************************/
+/* Estilos para el main */
+/************************/
+
+main {
+    flex: 1;                                      /* Hace que el contenido crezca para llenar el espacio disponible */
+    width: 95%;
+    margin: 30px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.15);
+}
+
+/********************************************************/
+/* Estilos de la cabecera (General a todas las páginas) */
+/********************************************************/
+
+    header {
+        background-color: #1a73e8;
+        color: white;
+        box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+        padding: 20px 0;
+    }
+
+    .contenedor-header {
+        display: flex;
+        align-items: center;            /* Centra verticalmente */
+        justify-content: space-between; /* Espacia izquierda–centro–derecha */
+        max-width: 1200px;
+        margin: auto;
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .header-imagenes-izquierda,
+    .header-imagen-derecha {
+        display: flex;
+        gap: 10px;
+    }
+
+    .header-imagenes-izquierda img,
+    .header-imagen-derecha img {
+        width: 50px;
+        height: auto;
+    }
+
+
+    .header-titulo {
+        text-align: center;
+        font-size: 2rem;
+        margin: 0;
+    }
+
+
+/****************************************************************/
+/* Estilos del menú de navegación (General a todas las páginas) */
+/****************************************************************/
+
+    nav {
+        background-color: #0f5fcc;
+    }
+
+    .menu {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        list-style: none;
+        padding: 10px 0;
+    }
+
+    .menu li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 8px 12px;
+        transition: background 0.2s;
+    }
+
+    .menu li a:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-radius: 5px;
+    }
+
+    .menu li a.activo {
+        background: linear-gradient(90deg, #1e1e1e, #333);
+        color: #ffd54a;
+        font-weight: bold;
+        border-left: 4px solid #ffd54a;
+        padding-left: 12px;
+        transition: all 0.25s ease-in-out;
+    }
+
+/***********************************************************/
+/* Estilos del pie de página (General a todas las páginas) */
+/***********************************************************/
+
+    footer {
+        text-align: center;
+        background-color: #1a73e8;
+        color: white;
+        font-size: 0.9rem;
+    }
+
+/******************************************************************/
+/* Estilos para formatear el código (General a todas las páginas) */
+/******************************************************************/
+
+    /*
+        La etiqueta <pre> en HTML sirve para mostrar texto preformateado, es decir, respetando exactamente:
+
+            Los saltos de línea
+            Los espacios
+            La tabulación
+            El alineado original
+
+        En otras palabras: lo que escribimos dentro de <pre> se muestra tal cual, sin que el navegador colapse los espacios o modifique el formato.
+    */
+    pre {
+        background: #1e1e1e;         /* Fondo oscuro estilo editor */
+        color: white;
+        padding: 15px;
+        border-radius: 8px;
+        overflow-x: auto;
+        border: 1px solid #333;
+        font-size: 0.95rem;
+    }
+
+    pre code {
+        font-family: "Consolas", "Fira Code", monospace;
+    }
+
+/***********************************************************************/
+/* Estilos para la consola de resultados (General a todas las páginas) */
+/***********************************************************************/
+
+    .ejemplo-consola-container {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+        align-items: center;
+    }
+
+    .consola-wrapper {
+        flex: 1;
+        min-width: 250px;
+        background: #300A24;
+        border-radius: 8px;
+    }
+
+    .consola {
+        color: #e0e0e0;
+        font-family: "Consolas", "Courier New", monospace;
+        padding: 15px;
+        border-radius: 0 0 8px 8px;
+        border: 2px solid black;
+        border-top: none;                      /* Para que se vea unida a la barra con la consola */
+        box-shadow: inset 0 0 10px rgba(0,0,0,0.6);
+        line-height: 1.35em;
+        font-size: 0.95rem;
+        white-space: pre-wrap;
+        overflow-x: auto;
+        margin: 0;
+    }
+
+    /* Estilo para la barra de la terminal que parezca la terminal de Linux */
+
+    .consola-barra {
+        background: #2b2b2b;
+        padding: 6px 10px;
+        border-radius: 8px 8px 0 0;
+        border-bottom: 1px solid #444;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;       /* Botones izquierda y texto derecha */
+        margin: 0;
+    }
+
+    .botones-consola {
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+    }
+
+    .consola-botones {
+        display: flex;
+        gap: 6px;
+    }
+
+    .consola-boton {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        border: 1px solid #222;
+    }
+
+    .consola-cerrar    { background: #CC575D; }
+    .consola-minimizar { background: #D8BD2A; }
+    .consola-maximizar { background: #3FB34F; }
+
+    .consola-titulo {
+        color: #ccc;
+        font-size: 0.9rem;
+        font-family: "Consolas", monospace;
+        opacity: 0.9;
+        user-select: none;
+    }
+
+/****************************************************************************/
+/* Estilos de la caja de ejemplo de código JS (General a todas las páginas) */
+/****************************************************************************/
+
+    .caja-ejemplo {
+        flex: 1;
+        min-width: 250px;
+        text-align: center;
+        background: #eef3ff;
+        padding: 20px;
+        border-left: 4px solid #1a73e8;
+        border-radius: 8px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .caja-ejemplo pre {
+        background: white;
+        padding: 15px;
+        border-radius: 5px;
+        overflow-x: auto;
+        border: 1px solid #d0d7e2;
+        text-align: left;
+    }
+
+    .caja-ejemplo button {
+        margin-top: 10px;
+        padding: 10px 15px;
+        background-color: #1a73e8;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: bold;
+        transition: background 0.2s;
+    }
+
+    .caja-ejemplo button:hover {
+        background-color: #0d57bd;
+    }
+
+/*************************************************/
+/* Estilo para el cuadro del evento de mouseover */
+/*************************************************/
+
+    .cuadroHover {
+        width:125px;
+        height:50px;
+        background:#1a73e8;
+        color:white;
+        text-align:center;
+        line-height:50px;
+        margin: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+/******************************************************************************/
+/* Estilos para los encabezados de los 3 lenguajes (HTML5, CSS3 y JavaScript) */
+/******************************************************************************/
+
+    /* Encabezado para código HTML5 */
+    .codigo-html {
+        background-color: #e34f26;
+        color: #ffffff;
+        padding: 6px 12px;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+        font-family: "Consolas", "Courier New", monospace;
+        font-weight: 700;
+        box-shadow: inset 0 -2px 3px rgba(0,0,0,0.15);
+        margin: 0;
+    }
+
+    /* Encabezado para código JavaScript */
+    .codigo-js {
+        background-color: #f0db4f;
+        color: #323330;
+        padding: 6px 12px;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+        font-family: "Consolas", "Courier New", monospace;
+        font-weight: 700;
+        box-shadow: inset 0 -2px 3px rgba(0,0,0,0.1);
+        margin: 0;
+    }
+
+    /* Encabezado para código CSS */
+    .codigo-css {
+        background-color: #264de4; 
+        color: #ffffff;
+        padding: 6px 12px;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+        font-family: "Consolas", "Courier New", monospace;
+        font-weight: 700;
+        box-shadow: inset 0 -2px 3px rgba(0,0,0,0.15);
+        margin: 0;
+    }
+
+/****************************************************************/
+/* Estilos de las clases usada en el ejemplo de cambiar estilos */
+/****************************************************************/
+
+    .estilo1 {
+        margin-top: 10px;
+        padding: 8px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #e53935;
+        font-family: "Courier New", monospace;
+        background: transparent;
+    }
+
+    .estilo2 {
+        margin-top: 10px;
+        padding: 10px;
+        font-size: 1.4rem;
+        background: #fff176;
+        color: #2e2e2e;
+        border-radius: 6px;
+        font-family: "Comic Sans MS", "Comic Sans", cursive;
+        border: 2px solid #f57f17;
+    }
+
+/***************************************************************************/
+/* Estilo de la clase de la lista dinámica de agregar y eliminar elementos */
+/***************************************************************************/
+
+    .lista-dinamica {
+        list-style: none;
+        padding: 0;
+        margin: 20px 0;
+        font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    .lista-dinamica li {
+        background: #f8f9fa;
+        margin: 8px 0;
+        padding: 12px 16px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        border-left: 5px solid #1a73e8;
+        transition: background 0.3s, transform 0.2s;
+    }
+
+    .lista-dinamica li::before {
+        content: "✔";
+        color: #1a73e8;
+        font-weight: bold;
+        margin-right: 10px;
+        font-size: 1rem;
+    }
+
+    .lista-dinamica li:hover {
+        background: #e7f1ff;
+        transform: translateX(4px);
+    }
+
+/************************************************************************************/
+/* Estilos para los elementos del ejemplo de modificar atributos (Cambiar ruta img) */
+/************************************************************************************/
+
+    .boton-imagen-cambiar {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .imagen-cambiar {
+        width: 120px;
+    }
+
+/*********************************************************************************************/
+/* Estilos para los elementos del ejemplo de recorrer elementos del DOM (Recorrer una lista) */
+/*********************************************************************************************/
+
+    .salida-recorrer {
+        color: black;
+    }
+
+    .lista-recorrer {
+        padding: 0;
+        margin-left: 10px;
+        max-width: 100px;
+    }
+
+/****************************************/
+/* Estilos para el ejemplo de animación */
+/****************************************/
+
+    .caja-doble-codigo {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        width: 100%;                     /* Ocupa todo el ancho del contenedor padre */
+        box-sizing: border-box;          /* Incluye padding y border en el ancho total */
+    }
+
+    .caja-codigo {
+        width: 100%;                     /* Asegura que cada caja ocupe el 100% de su columna */
+        box-sizing: border-box;          /* Incluye padding y border en el ancho */
+        overflow-x: auto;                /* Scroll horizontal si el código es muy largo */
+    }
+
+    .caja-animar {
+        width: 150px;                                   /* Ancho del coche */
+        height: 80px;                                   /* Alto del coche */
+        background-image: url('imagenes/coche.png');    /* Imagen de coche */
+        background-size: contain;                       /* Escala la imagen dentro del div */
+        background-repeat: no-repeat;                   /* No repetir la imagen */
+        background-position: center;                    /* Centrar la imagen */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 6px;
+        margin-top: 20px;
+        font-weight: bold;
+        font-size: 1rem;
+        color: transparent;                             /* Texto invisible si solo queremos la imagen */
+    }
+
+    /* Animación aplicada para mover y rebotar el coche */
+    @keyframes moverDerechaRebote {
+        0% {
+            transform: translateX(0);     /* Inicio: el div está en su posición original */
+        }
+        70% {
+            transform: translateX(200px); /* Mueve el div 200px a la derecha */
+        }
+        90% {
+            transform: translateX(180px); /* Rebote: retrocede ligeramente 20px */
+        }
+        100% {
+            transform: translateX(200px); /* Posición final: se queda en 200px a la derecha */
+        }
+    }
+
+    /* Animación para mover el coche hacia la derecha mientras rota */
+    /* El coche avanza en el eje X y completa una vuelta completa (360°) */
+    @keyframes moverYRotar {
+        0% {
+            transform: translateX(0) rotate(0deg);  /* Inicio: posición original y sin rotación */
+        }
+        100% {
+            transform: translateX(200px) rotate(360deg); /* Final: 200px a la derecha y rotación completa */
+        }
+    }
+
+    /* Animación para escalar el coche */
+    /* El coche empieza siendo pequeño y aumenta hasta su tamaño normal */
+    @keyframes escalarCoche {
+        0% {
+            transform: scale(0.3);   /* El coche comienza al 30% de su tamaño */
+        }
+        100% {
+            transform: scale(1);     /* Termina en su tamaño original */
+        }
+    }

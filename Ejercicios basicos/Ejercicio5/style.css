@@ -1,0 +1,17 @@
+.do {
+    background-color: palegreen;
+    border-color: greenyellow;
+    border: 10px;
+}
+
+.for {
+    background-color: palevioletred;
+    border-color: brown;
+    border: 1px;
+}
+
+.while {
+    background-color: palegoldenrod;
+    border-color: yellow;
+    border: 1px;
+}

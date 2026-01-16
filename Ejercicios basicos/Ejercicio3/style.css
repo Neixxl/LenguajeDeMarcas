@@ -1,0 +1,16 @@
+
+.mayor {
+    color: green;
+    background-color: greenyellow;
+    border-color: green;
+    border: 2px;
+    border-style: solid;
+}
+
+.menor {
+    color: brown;
+    background-color: red;
+    border-color: brown;
+    border: 2px;
+    border-style: solid;
+}

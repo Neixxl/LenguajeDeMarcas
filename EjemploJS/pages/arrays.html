@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Proyecto de ejemplos de JavaScript">  <!-- Descripción básica de la web -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- La meta viewport es esencial para que la página sea responsive en móviles -->
+    <meta name="author" content="Francisco Jesús Delgado Almirón">          <!-- Autor de la página web -->
+    <title>JavaScript - Arrays</title>
+    <link rel="icon" type="image/x-icon" href="../imagenes/favicon.ico">    <!-- Favicon de la página -->
+    <!-- Buenas prácticas de SEO -->
+    <meta name="keywords" content="HTML5, CSS3, diseño web">                <!-- Palabras clave que ayudan a los buscadores a entender el contenido (ya no tan relevantes en SEO moderno) -->
+    <meta name="robots" content="index, follow">                            <!-- Indica a los motores de búsqueda si deben indexar la página y seguir los enlaces -->
+
+    <link rel="stylesheet" href="../estilos.css">                           <!-- Hoja de estilos -->
+    <!-- CSS del tema que colorea el código -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="contenedor-header">
+
+            <div class="header-imagenes-izquierda">
+                <img src="../imagenes/logo_HTML5.svg" alt="Logo HTML5">
+                <img src="../imagenes/logo_CSS3.svg" alt="Logo CSS3">
+            </div>
+
+            <h1 class="header-titulo">UD 03 - Introducción a JavaScript</h1>
+
+            <div class="header-imagen-derecha">
+                <img src="../imagenes/logo_JavaScript.svg" alt="Logo JavaScript">
+            </div>
+
+        </div>
+    </header>
+
+    <nav>
+        <ul class="menu">
+            <li><a href="../index.html">Uso de variables</a></li>
+            <li><a href="condicionales.html">Condicionales y bucles</a></li>
+            <li><a href="arrays.html" class="activo">Arrays</a></li>
+            <li><a href="errores.html">Tratamiento de errores</a></li>
+            <li><a href="funciones.html">Funciones</a></li>
+            <li><a href="eventos.html">Eventos</a></li>
+            <li><a href="DOM.html">Manipulación del DOM</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <section>
+            <h2>Ejemplo de operaciones con Arrays</h2>
+            <p>A continuación se muestran ejemplos de las operaciones más comunes que se pueden realizar con arrays en JavaScript</p>
+
+            <div class="ejemplo-consola-container">
+                <div class="caja-ejemplo">
+                    <div class="caja-codigo">
+                        <h3 class="codigo-js">Código JavaScript</h3>
+                        <pre><code class="language-javascript">
+// Declaración de un array
+let numeros = [1, 2, 3, 4, 5];
+
+// Operaciones básicas
+numeros.push(6);          // Añade al final
+numeros.pop();            // Elimina último
+numeros.unshift(0);       // Añade al inicio
+numeros.shift();          // Elimina primer elemento
+
+// Operaciones adicionales
+let parte = numeros.slice(1, 4);                // Copia parte del array
+numeros.splice(2, 1, 99);                       // Reemplaza índice 2 por 99
+let dobles = numeros.map(n => n * 2);           // Nuevo array multiplicado por 2
+let mayoresQue3 = numeros.filter(n => n > 3);   // Filtra elementos mayores que 3
+let suma = numeros.reduce((acc, n) => acc + n, 0); // Suma de todos los elementos
+let encontrado = numeros.find(n => n > 3);      // Encuentra primer elemento > 3
+let existe = numeros.includes(2);               // Comprueba si existe el 2
+numeros.sort((a,b) => a-b);                     // Ordena de menor a mayor
+numeros.reverse();                              // Invierte el array
+let texto = numeros.join(", ");                 // Convierte en texto
+let combinado = numeros.concat([10,11,12]);    // Une con otro array
+
+console.log("Array original modificado:", numeros);
+console.log("Parte del array:", parte);
+console.log("Dobles:", dobles);
+console.log("Mayores que 3:", mayoresQue3);
+console.log("Suma:", suma);
+console.log("Encontrado (>3):", encontrado);
+console.log("Existe el 2:", existe);
+console.log("Texto:", texto);
+console.log("Combinado:", combinado);
+                        </code></pre>
+                    </div>
+
+                    <button id="btnArrays">Mostrar resultados</button>
+                </div>
+
+                <!-- Consola -->
+                <div class="consola-wrapper">
+                    <div class="consola-barra">
+                        <span class="consola-titulo">usuario@ejemplosJavaScript: ~</span>
+                        <div class="botones-consola">
+                            <div class="consola-boton consola-cerrar"></div>
+                            <div class="consola-boton consola-minimizar"></div>
+                            <div class="consola-boton consola-maximizar"></div>
+                        </div>
+                    </div>
+                    <div id="resultadoArrays" class="consola">
+                        <!-- Salida de eventos -->
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Lenguajes de Marcas y Sistemas de Gestión empresarial</p>
+    </footer>
+
+    <script src="../js/javascript.js"></script>
+    <!-- Script principal de highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+.suma{
+    color: blueviolet;
+    font-size: 2rem;
+    }
+.resta{
+    color: rgb(149, 255, 29);
+    font-size: 2rem;
+    }
+.producto{
+    color: rgb(255, 23, 15);
+    font-size: 2rem;
+    }
+.division{
+    color: rgb(54, 20, 245);
+    font-size: 2rem;
+    }
+.resto{
+    color: rgb(136, 241, 255);
+    font-size: 2rem;
+    }

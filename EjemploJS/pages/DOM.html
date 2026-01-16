@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Proyecto de ejemplos de JavaScript">  <!-- Descripción básica de la web -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- La meta viewport es esencial para que la página sea responsive en móviles -->
+    <meta name="author" content="Francisco Jesús Delgado Almirón">          <!-- Autor de la página web -->
+    <title>JavaScript - DOM</title>
+    <link rel="icon" type="image/x-icon" href="../imagenes/favicon.ico">    <!-- Favicon de la página -->
+    <!-- Buenas prácticas de SEO -->
+    <meta name="keywords" content="HTML5, CSS3, diseño web">                <!-- Palabras clave que ayudan a los buscadores a entender el contenido (ya no tan relevantes en SEO moderno) -->
+    <meta name="robots" content="index, follow">                            <!-- Indica a los motores de búsqueda si deben indexar la página y seguir los enlaces -->
+
+    <link rel="stylesheet" href="../estilos.css">                           <!-- Hoja de estilos -->
+    <!-- CSS del tema que colorea el código -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="contenedor-header">
+
+            <div class="header-imagenes-izquierda">
+                <img src="../imagenes/logo_HTML5.svg" alt="Logo HTML5">
+                <img src="../imagenes/logo_CSS3.svg" alt="Logo CSS3">
+            </div>
+
+            <h1 class="header-titulo">UD 03 - Introducción a JavaScript</h1>
+
+            <div class="header-imagen-derecha">
+                <img src="../imagenes/logo_JavaScript.svg" alt="Logo JavaScript">
+            </div>
+
+        </div>
+    </header>
+
+    <nav>
+        <ul class="menu">
+            <li><a href="../index.html">Uso de variables</a></li>
+            <li><a href="condicionales.html">Condicionales y bucles</a></li>
+            <li><a href="arrays.html">Arrays</a></li>
+            <li><a href="errores.html">Tratamiento de errores</a></li>
+            <li><a href="funciones.html">Funciones</a></li>
+            <li><a href="eventos.html">Eventos</a></li>
+            <li><a href="DOM.html" class="activo">Manipulación del DOM</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Ejemplos de Manipulación del DOM</h2>
+            <p>A continuación se muestran varios ejemplos básicos de manipulación del DOM usando JavaScript</p>
+        </section>
+
+        <!-- ========================================= -->
+        <!-- 1. Cambiar contenido de un texto          -->
+        <!-- ========================================= -->
+        <section class="caja-ejemplo">
+            <h3>Cambiar contenido de un elemento</h3>
+
+            <div class="caja-doble-codigo">
+
+                <div class="caja-codigo">
+                    <h3 class="codigo-html">Código HTML5</h3>
+                    <pre><code class="language-html">
+&lt;button id="btnCambiarContenido"&gt;Ejecutar ejemplo&lt;/button&gt;
+&lt;p id="textoCambiarContenido"&gt;Este texto será cambiado.&lt;/p&gt;
+                    </code></pre>
+                </div>
+
+                <div class="caja-codigo">
+                    <h3 class="codigo-js">Código JavaScript</h3>                
+                    <pre><code class="language-javascript">
+const btnCambiarContenido = document.getElementById("btnCambiarContenido");
+
+if(btnCambiarContenido){
+    btnCambiarContenido.addEventListener("click", () => {
+        const texto = document.getElementById("textoCambiarContenido");
+        texto.textContent = "El contenido ha sido modificado dinámicamente.";
+    });
+}
+                    </code></pre>
+                </div>
+
+            </div>
+            <button id="btnCambiarContenido">Ejecutar ejemplo</button>
+
+            <p id="textoCambiarContenido">Este texto será cambiado.</p>
+        </section>
+
+        <!-- ========================================= -->
+        <!-- 2. Cambiar estilos usando JavaScript      -->
+        <!-- ========================================= -->
+        <section class="caja-ejemplo">
+            <h3>Cambiar estilos usando JavaScript</h3>
+
+            <div class="caja-doble-codigo">
+
+                <div class="caja-codigo">
+                    <h3 class="codigo-html">Código HTML5</h3>
+                    <pre><code class="language-html">
+&lt;button id="btnCambiarEstilos"&gt;Ejecutar ejemplo&lt;/button&gt;
+
+&lt;div id="caja-estilos" class="estilo1"&gt;
+    Caja a la que cambiaremos los estilos
+&lt;/div&gt;
+                    </code></pre>
+                </div>
+
+                <div class="caja-codigo">
+                    <h3 class="codigo-js">Código JavaScript</h3>
+                    <pre><code class="language-javascript">
+const btnCambiarEstilos = document.getElementById("btnCambiarEstilos");
+
+if(btnCambiarEstilos){
+    btnCambiarEstilos.addEventListener("click", () => {
+        const caja = document.getElementById("caja-estilos");
+
+        // Alterna entre dos estilos. Si la clase existe, la remueve; si no existe, la añade
+        caja.classList.toggle("estilo2");
+        // También podemos reemplazar todas las clases existentes y dejar la indicada
+        // Pero no funcionaría para alternar
+        // caja.className = "estilo2";
+    });
+}
+                    </code></pre>
+                </div>
+            
+                <div class="caja-codigo">
+                    <h3 class="codigo-css">Código CSS</h3>
+                    <pre><code class="language-css">
+.estilo1 {
+    margin-top: 10px;
+    padding: 8px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #e53935;
+    font-family: "Courier New", monospace;
+    background: transparent;
+}
+
+.estilo2 {
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 1.4rem;
+    background: #fff176;
+    color: #2e2e2e;
+    border-radius: 6px;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    border: 2px solid #f57f17;
+}
+                    </code></pre>
+                </div>
+
+            </div>
+
+            <button id="btnCambiarEstilos">Ejecutar ejemplo</button>
+
+            <div id="caja-estilos" class="estilo1">
+                Caja a la que cambiaremos los estilos
+            </div>
+        </section>
+
+        <!-- ========================================= -->
+        <!-- 3. Crear y eliminar elementos             -->
+        <!-- ========================================= -->
+        <section class="caja-ejemplo">
+            <h3>Crear y eliminar elementos</h3>
+
+            <div class="caja-doble-codigo">
+
+                <div class="caja-codigo">
+                    <h3 class="codigo-html">Código HTML5</h3>
+                    <pre><code class="language-html">
+&lt;button id="btnCrearElemento"&gt;Crear elemento&lt;/button&gt;
+&lt;button id="btnEliminarElemento"&gt;Eliminar último&lt;/button&gt;
+
+&lt;ul class="lista-dinamica" id="lista-dinamica"&gt;
+    &lt;li&gt;Elemento de la lista número 1&lt;/li&gt;
+&lt;/ul&gt;
+                    </code></pre>
+                </div>
+
+                <div class="caja-codigo">
+                    <h3 class="codigo-js">Código JavaScript</h3>
+                    <pre><code class="language-javascript">
+let cantidadelementoslista = 1;
+const btnCrearElemento = document.getElementById("btnCrearElemento");
+const btnEliminarElemento = document.getElementById("btnEliminarElemento");
+
+if(btnCrearElemento){
+    btnCrearElemento.addEventListener("click", () => {
+        const listadinamica = document.getElementById("lista-dinamica");
+
+        const nuevo = document.createElement("li");
+        nuevo.textContent = "Elemento de la lista número " + ++cantidadelementoslista;
+
+        listadinamica.appendChild(nuevo);
+    });
+}
+    
+if(btnEliminarElemento){
+    btnEliminarElemento.addEventListener("click", () => {
+        const listadinamica = document.getElementById("lista-dinamica");
+
+        if (listadinamica.lastElementChild) {
+            listadinamica.removeChild(listadinamica.lastElementChild);
+            cantidadelementoslista--;
+        }
+    });
+}
+                    </code></pre>
+                </div>
+
+            </div>
+
+            <button id="btnCrearElemento">Crear elemento</button>
+            <button id="btnEliminarElemento">Eliminar último</button>
+
+            <ul class="lista-dinamica" id="lista-dinamica">
+                <li>Elemento de la lista número 1</li>
+            </ul>
+        </section>
+
+        <!-- ========================================= -->
+        <!-- 4. Modificar atributos                    -->
+        <!-- ========================================= -->
+        <section class="caja-ejemplo">
+            <h3>Modificar atributos</h3>
+
+            <div class="caja-doble-codigo">
+
+                <div class="caja-codigo">
+                    <h3 class="codigo-html">Código HTML5</h3>
+                    <pre><code class="language-html">
+&lt;div class="boton-imagen-cambiar"&gt;
+    &lt;button id="btnCambiarAtributo"&gt;Cambiar imagen&lt;/button&gt;
+    &lt;img class="imagen-cambiar" id="imagen-cambiar" src="../imagenes/logo_HTML5.svg"&gt;
+&lt;/div&gt;
+                    </code></pre>
+                </div>
+
+                <div class="caja-codigo">
+                    <h3 class="codigo-js">Código JavaScript</h3>
+                    <pre><code class="language-javascript">
+let imagenmostrada = 1;
+const btnCambiarAtributo = document.getElementById("btnCambiarAtributo");
+
+if (btnCambiarAtributo) {
+    btnCambiarAtributo.addEventListener("click", () => {
+        const imagencambiar = document.getElementById("imagen-cambiar");
+
+        const imagenes = [
+            "../imagenes/logo_HTML5.svg",
+            "../imagenes/logo_CSS3.svg",
+            "../imagenes/logo_JavaScript.svg"
+        ];
+            
+        imagencambiar.src = imagenes[imagenmostrada];
+
+        imagenmostrada = (imagenmostrada + 1) % 3;
+    });
+}
+                    </code></pre>
+                </div>
+            
+            </div>
+
+            <div class="boton-imagen-cambiar">
+                <button id="btnCambiarAtributo">Cambiar imagen</button>
+
+                <img class="imagen-cambiar" id="imagen-cambiar" src="../imagenes/logo_HTML5.svg">
+            </div>
+        </section>
+
+        <!-- ========================================= -->
+        <!-- 5. Leer valores de un formulario          -->
+        <!-- ========================================= -->
+        <section class="caja-ejemplo">
+            <h3>Leer valores de un input de un formulario</h3>
+
+            <div class="caja-doble-codigo">
+
+                <div class="caja-codigo">
+                    <h3 class="codigo-html">Código HTML5</h3>
+                    <pre><code class="language-html">
+&lt;form method="post" action="procesarformulario.php" name="ejemplo" enctype="multipart/form-data"&gt;
+    &lt;input id="input-nombre" type="text" placeholder="Escribe tu nombre"&gt;
+&lt;/form&gt;
+
+&lt;button id="btnLeerFormulario"&gt;Leer valor&lt;/button&gt;
+&lt;p id="resultado-formulario"&gt;&lt;/p&gt
+                    </code></pre>
+                </div>
+
+                <div class="caja-codigo">
+                    <h3 class="codigo-js">Código JavaScript</h3>
+                    <pre><code class="language-javascript">
+const btnLeerFormulario = document.getElementById("btnLeerFormulario");
+
+if(btnLeerFormulario){
+    btnLeerFormulario.addEventListener("click", () => {
+        const nombre = document.getElementById("input-nombre").value;
+
+        const salida = document.getElementById("resultado-formulario");
+
+        if (nombre.trim() === "") {
+            salida.textContent = "Error. Rellena todos los campos";
+        } else {
+            salida.textContent = `Hola ${nombre}`;
+        }
+    });
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <form method="post" action="procesarformulario.php" name="ejemplo" enctype="multipart/form-data">
+                <input id="input-nombre" type="text" placeholder="Escribe tu nombre">
+            </form>
+
+            <button id="btnLeerFormulario">Leer valor</button>
+            <p id="resultado-formulario"></p>
+        </section>
+
+        <!-- ========================================= -->
+        <!-- 6. Recorrer elementos del DOM             -->
+        <!-- ========================================= -->
+        <section class="caja-ejemplo">
+            <h3>Recorrer elementos del DOM</h3>
+
+            <div class="caja-doble-codigo">
+
+                <div class="caja-codigo">
+                    <h3 class="codigo-html">Código HTML5</h3>
+                    <pre><code class="language-html">
+&lt;button id="btnRecorrer"&gt;Recorrer lista&lt;/button&gt;
+
+&lt;ul class="lista-recorrer"&gt;
+    &lt;li&gt;Elemento A&lt;/li&gt;
+    &lt;li&gt;Elemento B&lt;/li&gt;
+    &lt;li&gt;Elemento C&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre class="salida-recorrer" id="salida-recorrer"&gt;&lt;/pre&gt;
+                    </code></pre>
+                </div>
+
+                <div class="caja-codigo">
+                    <h3 class="codigo-js">Código JavaScript</h3>
+                    <pre><code class="language-javascript">
+const btnRecorrer = document.getElementById("btnRecorrer");
+
+if(btnRecorrer){
+    btnRecorrer.addEventListener("click", () => {
+        const items = document.querySelectorAll(".lista-recorrer li");
+        const salida = document.getElementById("salida-recorrer");
+
+        let texto = "Elementos encontrados:\n";
+
+        items.forEach((item, index) => {
+            texto += `• (${index + 1}) ${item.textContent}\n`;
+        });
+
+        salida.textContent = texto;
+    });
+}
+                    </code></pre>
+                </div>
+
+            </div>
+
+            <button id="btnRecorrer">Recorrer lista</button>
+
+            <ul class="lista-recorrer">
+                <li>Elemento A</li>
+                <li>Elemento B</li>
+                <li>Elemento C</li>
+            </ul>
+
+            <pre class="salida-recorrer" id="salida-recorrer"></pre>
+        </section>
+
+        <!-- ========================================= -->
+        <!-- 7. Animaciones básicas                    -->
+        <!-- ========================================= -->
+        <section class="caja-ejemplo">
+            <h3>Animación aplicada desde JavaScript</h3>
+
+            <div class="caja-doble-codigo">
+                
+                <div class="caja-codigo">
+                    <h3 class="codigo-js">Código JavaScript</h3>
+                    <pre><code class="language-javascript">
+const btnAnimar1 = document.getElementById("btnAnimar1");
+const btnAnimar2 = document.getElementById("btnAnimar2");
+const btnAnimar3 = document.getElementById("btnAnimar3");
+
+if(btnAnimar1){
+    btnAnimar1.addEventListener("click", () => {
+        const cuadroAnimar = document.getElementById("cuadroAnimar");
+
+        // Resetea animación si ya fue ejecutada
+        cuadroAnimar.style.animation = "none";
+        // offsetWidth es una propiedad del DOM que devuelve el ancho visible de un elemento en píxeles.
+        // Leer esta propiedad hace que el navegador recalcule el estilo y la disposición de ese elemento, es decir, fuerza un reflow/repaint.
+        void cuadroAnimar.offsetWidth;
+        // Aplica la animación
+        // Durante 1,2 segundos
+        // Función de temporización (ease-in-out). La animación acelera al inicio y desacelera al final, haciendo el movimiento más natural.
+        // Propiedad animation-fill-mode = forwards. Hace que el elemento se quede en el estado final de la animación una vez que termina, en lugar de volver a la posición inicial.
+        cuadroAnimar.style.animation = "moverDerechaRebote 1.2s ease-in-out forwards";
+    });
+}
+    
+if(btnAnimar2){
+    btnAnimar2.addEventListener("click", () => {
+        const cuadroAnimar = document.getElementById("cuadroAnimar");
+
+        cuadroAnimar.style.animation = "none";
+        void cuadroAnimar.offsetWidth;
+        cuadroAnimar.style.animation = "moverYRotar 1.2s ease-in-out forwards";
+    });
+}
+
+if(btnAnimar3){
+    btnAnimar3.addEventListener("click", () => {
+        const cuadroAnimar = document.getElementById("cuadroAnimar");
+
+        cuadroAnimar.style.animation = "none";
+        void cuadroAnimar.offsetWidth;
+        cuadroAnimar.style.animation = "escalarCoche 1.2s ease-in-out forwards";
+    });
+}
+                    </code></pre>
+                </div>
+
+                <div class="caja-codigo">
+                    <h3 class="codigo-css">Código CSS</h3>
+                    <pre><code class="language-css">
+.caja-animar {
+    width: 150px;                                   /* Ancho del coche */
+    height: 80px;                                   /* Alto del coche */
+    background-image: url('imagenes/coche.png');    /* Imagen de coche */
+    background-size: contain;                       /* Escala la imagen dentro del div */
+    background-repeat: no-repeat;                   /* No repetir la imagen */
+    background-position: center;                    /* Centrar la imagen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 1rem;
+    color: transparent;                             /* Texto invisible si solo queremos la imagen */
+}
+
+/* Animación aplicada para mover y rebotar el coche */
+@keyframes moverDerechaRebote {
+    0% {
+        transform: translateX(0);     /* Inicio: el div está en su posición original */
+    }
+    70% {
+        transform: translateX(200px); /* Mueve el div 200px a la derecha */
+    }
+    90% {
+        transform: translateX(180px); /* Rebote: retrocede ligeramente 20px */
+    }
+    100% {
+        transform: translateX(200px); /* Posición final: se queda en 200px a la derecha */
+    }
+}
+
+/* Animación para mover el coche hacia la derecha mientras rota */
+/* El coche avanza en el eje X y completa una vuelta completa (360°) */
+@keyframes moverYRotar {
+    0% {
+        transform: translateX(0) rotate(0deg);       /* Inicio: posición original y sin rotación */
+    }
+    100% {
+        transform: translateX(200px) rotate(360deg); /* Final: 200px a la derecha y rotación completa */
+    }
+}
+
+/* Animación para escalar el coche */
+/* El coche empieza siendo pequeño y aumenta hasta su tamaño normal */
+@keyframes escalarCoche {
+    0% {
+        transform: scale(0.3);   /* El coche comienza al 30% de su tamaño */
+    }
+    100% {
+        transform: scale(1);     /* Termina en su tamaño original */
+    }
+}
+                </code></pre>
+            </div>
+
+            <div class="caja-codigo">
+                    <h3 class="codigo-html">Código HTML5</h3>
+                    <pre><code class="language-html">
+&lt;div class="botonesanimaciones"&gt;
+    &lt;button id="btnAnimar1"&gt;Ejecutar animaci&oacute;n 1&lt;/button&gt;
+    &lt;button id="btnAnimar2"&gt;Ejecutar animaci&oacute;n 2&lt;/button&gt;
+    &lt;button id="btnAnimar3"&gt;Ejecutar animaci&oacute;n 3&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div id="cuadroAnimar" class="caja-animar"&gt;
+    Animaci&oacute;n
+&lt;/div&gt;
+                    </code></pre>
+                </div>
+
+        </div>
+
+            <div class="botonesanimaciones">
+                <button id="btnAnimar1">Ejecutar animación 1</button>
+                <button id="btnAnimar2">Ejecutar animación 2</button>
+                <button id="btnAnimar3">Ejecutar animación 3</button>
+            </div>
+
+            <div id="cuadroAnimar" class="caja-animar">
+                Animación
+            </div>
+        </section>
+            
+    </main>
+
+    <footer>
+        <p>Lenguajes de Marcas y Sistemas de Gestión empresarial</p>
+    </footer>
+
+    <script src="../js/javascript.js"></script>
+    <!-- Script principal de highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+</body>
+
+</html>
