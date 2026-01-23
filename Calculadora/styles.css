@@ -1,4 +1,4 @@
-:root{
+:root {
     --calcWhite: #ffffff;
     --calcRed: red;
     --calcSuma: #4bff4b;
@@ -20,20 +20,25 @@
     --calcDisabled: #1e1e1e;
 }
 
-header{
+
+
+header {
     text-align: center;
     padding: 1rem;
     margin-bottom: 40px;
 }
-header h1{
+
+header h1 {
     font-family: Segment7Standard, monospace;
     font-weight: 900;
     font-size: 2.2rem;
 }
-body{
+
+body {
     background-color: var(--calcFondo);
 }
-footer{
+
+footer {
     margin-top: 60px;
     background-color: var(--calcFondo);
     text-align: center;
@@ -44,7 +49,7 @@ footer{
     letter-spacing: 2px;
 }
 
-button{
+button {
     font-size: 1.3rem;
     padding: 18px;
     border: 10px;
@@ -55,54 +60,60 @@ button{
 
 }
 
-button:hover{
+button:hover {
     background-color: var(--calcBHover);
 }
 
 /*  === OPERADORES === */
-.operator{
+.operator {
     background-color: var(--calcOperation);
     color: var(--calcWhite);
 }
-.special{
+
+.special {
     background-color: var(--calcSpecial);
     color: var(--calcWhite);
 }
-.igual{
+
+.igual {
     background-color: var(--calcEqual);
     color: var(--calcWhite);
 }
 
 /* === ESPECIAL === */
-.disabled{
+.disabled {
     background-color: var(--calcDisabled);
     cursor: not-allowed;
 }
-.CE{
+
+.CE {
     grid-column: span 2;
 }
-.cero{
+
+.cero {
     grid-column: span 2;
 }
-img{
+
+img {
     width: 75%;
 }
-.image{
+
+.image {
     padding: 0px;
 }
 
 /* === PANTALLA === */
-.pantalla{
+.pantalla {
     border: 10px;
     height: 70px;
     margin-bottom: 20px;
     width: 100%;
 }
 
-.pantalla label{
+.pantalla span {
     display: block;
     padding: 15px;
-    /* width: 100%; */
+    width: 90%;
     height: 60%;
     border-radius: 10px;
     background-color: var(--calcScreen);
@@ -114,7 +125,7 @@ img{
 }
 
 
-.calculadoraHolder{
+.calculadoraHolder {
     background-color: var(--fondoCalc);
     border-radius: 20px;
     border: 20px;
@@ -125,9 +136,28 @@ img{
     max-width: 320px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
-.botonesHolder{
+
+.botonesHolder {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
+}
+
+/* === OPERADORES === */
+
+#pantalla.sumaText {
+  color: var(--calcSuma);
+}
+
+#pantalla.restaText {
+  color: var(--caclResta);
+}
+
+#pantalla.multiText {
+  color: var(--caclMulti);
+}
+
+#pantalla.diviText {
+  color: var(--calcDivi);
 }
 
