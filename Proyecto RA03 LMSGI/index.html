@@ -50,35 +50,52 @@
                     <div class="jugador">
                         <p class="etiqueta-jugador">Tú</p>
                         <div id="jugada-jugador" class="mostrar-jugada">
-                            <span class="placeholder">❓</span>
+                            <span class="placeholder">ERROR</span>
                         </div>
                     </div>
                     <div class="vs-circle">VS</div>
                     <div class="jugador">
                         <p class="etiqueta-jugador">CPU</p>
                         <div id="jugada-cpu" class="mostrar-jugada">
-                            <span class="placeholder">❓</span>
+                            <span class="placeholder">ERROR</span>
                         </div>
                     </div>
                 </div>
+                <div id="resultado-jugada" class="mensaje-resultado"></div>
             </div>
         </div>
-        <div class="contenedor-resultado panel-batalla">
-            <h2>Estadísticas del juego</h2>
-            <div class="estadisticas-juego">
-                <div class="panel-estadistica">
-                    <span class="valor-estadistica" id="victorias">0</span>
-                    <span class="etiqueta-estadistica">Victorias</span>
-                </div>
 
-                <div class="panel-estadistica">
-                    <span class="valor-estadistica" id="derrotas">0</span>
-                    <span class="etiqueta-estadistica">Derrotas</span>
-                </div>
+        <div class="paneles-arriba">
+            <div class="contenedor-resultado panel-batalla">
+                <h2>Estadísticas del juego</h2>
+                <div class="estadisticas-juego">
+                    <div class="panel-estadistica">
+                        <span class="valor-estadistica" id="victorias">0</span>
+                        <span class="etiqueta-estadistica">Victorias</span>
+                    </div>
 
-                <div class="panel-estadistica">
-                    <span class="valor-estadistica" id="empates">0</span>
-                    <span class="etiqueta-estadistica">Empates</span>
+                    <div class="panel-estadistica">
+                        <span class="valor-estadistica" id="derrotas">0</span>
+                        <span class="etiqueta-estadistica">Derrotas</span>
+                    </div>
+
+                    <div class="panel-estadistica">
+                        <span class="valor-estadistica" id="empates">0</span>
+                        <span class="etiqueta-estadistica">Empates</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="jugador">
+                <div class="etiqueta-jugador">
+                    <button class="boton-eleccion-jugada" id="reiniciar-juego">
+                        <span>REINICIAR JUEGO</span>
+                    </button>
+                </div>
+                <div>
+                    <button class="boton-eleccion-jugada" id="mostrar-reglas">
+                        <span>MOSTRAR REGLAS</span>
+                    </button>
                 </div>
             </div>
         </div>
