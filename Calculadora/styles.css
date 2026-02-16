@@ -1,146 +1,146 @@
 :root {
-    --calcWhite: #ffffff;
-    --calcRed: red;
-    --calcSuma: #4bff4b;
-    --caclResta: #ff884b;
-    --caclMulti: #ffbf00;
-    --calcDivi: #00c8ff;
-    --calcInver: #b084ff;
-    --caclCuadrado: #ff4bd8;
-    --calcRaiz: #00ffbf;
-    --calcFondo: #f0fff0;
-    --caclTPie: #3d6b5d;
-    --fondoCalc: #1f1f1f;
-    --calcScreen: #000;
-    --calcButton: #2d2d2d;
-    --calcBHover: #3a3a3a;
-    --calcSpecial: #3b3b3b;
-    --calcOperation: #4b4bff;
-    --calcEqual: #ff9500;
-    --calcDisabled: #1e1e1e;
+  --calcWhite: #ffffff;
+  --calcRed: red;
+  --calcSuma: #4bff4b;
+  --caclResta: #ff884b;
+  --caclMulti: #ffbf00;
+  --calcDivi: #00c8ff;
+  --calcInver: #b084ff;
+  --caclCuadrado: #ff4bd8;
+  --calcRaiz: #00ffbf;
+  --calcFondo: #f0fff0;
+  --caclTPie: #3d6b5d;
+  --fondoCalc: #1f1f1f;
+  --calcScreen: #000;
+  --calcButton: #2d2d2d;
+  --calcBHover: #3a3a3a;
+  --calcSpecial: #3b3b3b;
+  --calcOperation: #4b4bff;
+  --calcEqual: #ff9500;
+  --calcDisabled: #1e1e1e;
 }
 
-
-
 header {
-    text-align: center;
-    padding: 1rem;
-    margin-bottom: 40px;
+  text-align: center;
+  padding: 1rem;
+  margin-bottom: 40px;
 }
 
 header h1 {
-    font-family: Segment7Standard, monospace;
-    font-weight: 900;
-    font-size: 2.2rem;
+  font-family: Segment7Standard, monospace;
+  font-weight: 900;
+  font-size: 2.2rem;
 }
 
 body {
-    background-color: var(--calcFondo);
+  background-color: var(--calcFondo);
 }
 
 footer {
-    margin-top: 60px;
-    background-color: var(--calcFondo);
-    text-align: center;
-    font-family: 'Arial', sans-serif;
-    font-size: 0.75rem;
-    font-variant-caps: all-small-caps;
-    font-weight: 400;
-    letter-spacing: 2px;
+  margin-top: 60px;
+  background-color: var(--calcFondo);
+  text-align: center;
+  font-family: "Arial", sans-serif;
+  font-size: 0.75rem;
+  font-variant-caps: all-small-caps;
+  font-weight: 400;
+  letter-spacing: 2px;
 }
 
 button {
-    font-size: 1.3rem;
-    padding: 18px;
-    border: 10px;
-    cursor: pointer;
-    border-radius: 10px;
-    background-color: var(--calcButton);
-    color: var(--calcWhite);
-
+  font-size: 1.3rem;
+  padding: 18px;
+  border: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  background-color: var(--calcButton);
+  color: var(--calcWhite);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 button:hover {
-    background-color: var(--calcBHover);
+  background-color: var(--calcBHover);
 }
 
 /*  === OPERADORES === */
 .operator {
-    background-color: var(--calcOperation);
-    color: var(--calcWhite);
+  background-color: var(--calcOperation);
+  color: var(--calcWhite);
 }
 
 .special {
-    background-color: var(--calcSpecial);
-    color: var(--calcWhite);
+  background-color: var(--calcSpecial);
+  color: var(--calcWhite);
 }
 
 .igual {
-    background-color: var(--calcEqual);
-    color: var(--calcWhite);
+  background-color: var(--calcEqual);
+  color: var(--calcWhite);
 }
 
 /* === ESPECIAL === */
 .disabled {
-    background-color: var(--calcDisabled);
-    cursor: not-allowed;
+  background-color: var(--calcDisabled);
+  cursor: not-allowed;
 }
 
 .CE {
-    grid-column: span 2;
+  grid-column: span 2;
 }
 
 .cero {
-    grid-column: span 2;
+  grid-column: span 2;
 }
 
 img {
-    width: 75%;
+  width: 75%;
 }
 
 .image {
-    padding: 0px;
+  padding: 0px;
 }
 
 /* === PANTALLA === */
 .pantalla {
-    border: 10px;
-    height: 70px;
-    margin-bottom: 20px;
-    width: 100%;
+  border: 10px;
+  height: 70px;
+  margin-bottom: 20px;
+  width: 100%;
 }
 
 .pantalla span {
-    display: block;
-    padding: 15px;
-    width: 90%;
-    height: 60%;
-    border-radius: 10px;
-    background-color: var(--calcScreen);
-    border-style: none;
-    color: var(--calcWhite);
-    font-family: Segment7Standard, monospace;
-    font-size: 40px;
-    text-align: right;
+  display: block;
+  padding: 15px;
+  width: 90%;
+  height: 60%;
+  border-radius: 10px;
+  background-color: var(--calcScreen);
+  border-style: none;
+  color: var(--calcWhite);
+  font-family: Segment7Standard, monospace;
+  font-size: 40px;
+  text-align: right;
+  overflow: hidden;
 }
 
-
 .calculadoraHolder {
-    background-color: var(--fondoCalc);
-    border-radius: 20px;
-    border: 20px;
-    padding: 20px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    max-width: 320px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  background-color: var(--fondoCalc);
+  border-radius: 20px;
+  border: 20px;
+  padding: 20px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 320px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
 .botonesHolder {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
 }
 
 /* === OPERADORES === */
@@ -161,3 +161,14 @@ img {
   color: var(--calcDivi);
 }
 
+#pantalla.inverText {
+  color: var(--calcInver);
+}
+
+#pantalla.cuadradoText {
+  color: var(--caclCuadrado);
+}
+
+#pantalla.raizText {
+  color: var(--calcRaiz);
+}
