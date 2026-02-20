@@ -2,17 +2,19 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="author" content="Neizan del Rio">
     <title>Piedra, Papel, Tijera, Lagarto, Spock</title>
     <link rel="stylesheet" href="estilos.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500&display
-=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="images/spock-hand-gesture.svg">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="imagenes/spock-hand-gesture.svg">
 </head>
 
 <body>
     <header>
         <h1 class="titulo-juego">Piedra, Papel, Tijera, Lagarto, Spock</h1>
-        <p class="subtitulo-juego">El juego definitivo (con partes opcionales)</p>
+        <p class="subtitulo-juego">El juego definitivo (Con partes opcionales)</p>
     </header>
     <main>
         <div class="paneles-arriba">
@@ -22,23 +24,23 @@
 
                 <div class="contenedor-elecciones-juego">
 
-                    <button class="boton-eleccion-jugada" id="piedra" title="Piedra vence a: Tijera y Lagarto">
+                    <button class="boton-eleccion-jugada" id="piedra">
                         <span class="icono-jugada">🪨</span>
                         <span>Piedra</span>
                     </button>
-                    <button class="boton-eleccion-jugada" id="papel" title="Papel vence a: Piedra y Spock">
+                    <button class="boton-eleccion-jugada" id="papel">
                         <span class="icono-jugada">📄</span>
                         <span>Papel</span>
                     </button>
-                    <button class="boton-eleccion-jugada" id="tijera" title="Tijera vence a: Papel y Lagarto">
+                    <button class="boton-eleccion-jugada" id="tijera">
                         <span class="icono-jugada">✂️</span>
                         <span>Tijera</span>
                     </button>
-                    <button class="boton-eleccion-jugada" id="lagarto" title="Lagarto vence a: Papel y Spock">
+                    <button class="boton-eleccion-jugada" id="lagarto">
                         <span class="icono-jugada">🦎</span>
                         <span>Lagarto</span>
                     </button>
-                    <button class="boton-eleccion-jugada" id="spock" title="Spock vence a: Piedra y Tijera">
+                    <button class="boton-eleccion-jugada" id="spock">
                         <span class="icono-jugada">🖖</span>
                         <span>Spock</span>
                     </button>
@@ -67,7 +69,7 @@
 
         <div class="paneles-arriba">
             <div class="contenedor-resultado panel-batalla">
-                <h2>Estadísticas del juego</h2>
+                <h2 id="titulo-estadisticas">Batalla!</h2>
                 <div class="estadisticas-juego">
                     <div class="panel-estadistica">
                         <span class="valor-estadistica" id="victorias">0</span>
@@ -103,7 +105,7 @@
     </main>
     <footer>
         <p>Proyecto evaluación RA 03 - Lenguajes de marcas y sistemas de gestión de información</p>
-        <p>Proyecto realizado por: 👉 Neizan del Rio 👈 (Declaro que no he usado IA en el proyecto)</p>
+        <p>Proyecto realizado por: Neizan del Rio (Declaro que no he usado IA en el proyecto)</p>
     </footer>
     <script src="js/javascript.js"></script>
 </body>
