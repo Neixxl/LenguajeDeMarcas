@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Mapa orbital del Sistema Solar usando Elementos Keplerianos y la API de NASA (JPL SBDB).">
+    <title>Mapa Orbital del Sistema Solar</title>
+    <link rel="stylesheet" href="mapa.css">
+</head>
+
+<body>
+    <div id="local-warning"
+        style="display: none; background: #b07070; color: white; padding: 10px; text-align: center; font-size: 0.8rem; font-weight: bold;">
+        ⚠️ AVISO: Estás abriendo este archivo de forma local (file:///). La búsqueda de asteroides será bloqueada por
+        CORS en tu navegador. Por favor, abre la carpeta con una extensión como 'Live Server'.
+    </div>
+    <div class="app-layout">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+            <div class="topbar-brand">
+                <span class="logo">&gt;</span>
+                <span>NASA Orbit Map</span>
+            </div>
+
+            <div class="topbar-controls">
+                <button class="btn" onclick="timeScale = 0" title="Pausar simulacion">||</button>
+                <button class="btn" onclick="timeScale = 1" title="Tiempo real">1x</button>
+                <button class="btn" onclick="timeScale = 10" title="Camara rapida">10x</button>
+                <button class="btn" onclick="timeScale = 100" title="Camara muy rapida">100x</button>
+                <span style="font-size:0.75rem;color:var(--text-dim);margin-left:10px" id="current-date-ui"></span>
+            </div>
+
+            <div class="topbar-stats">
+                <a href="debug.html"
+                    style="color:var(--text-dim);text-decoration:none;font-size:0.7rem;margin-right:15px">&lt; Volver al
+                    Debugger</a>
+                <span><span class="stat-dot green"></span> ssd-api.jpl.nasa.gov</span>
+            </div>
+        </header>
+
+        <!-- SIDEBAR -->
+        <nav class="sidebar">
+            <div class="sidebar-section-title">Navegacion visual</div>
+
+            <div style="padding: 10px; display: flex; flex-direction: column; gap: 10px;">
+                <div class="form-group">
+                    <label>Zoom (escala AU)</label>
+                    <input type="range" id="zoom-slider" min="10" max="1000" value="150"
+                        oninput="zoom = parseInt(this.value)">
+                </div>
+            </div>
+
+            <div class="sidebar-section-title">Añadir Asteroide (NEO)</div>
+
+            <div style="padding: 10px; display: flex; flex-direction: column; gap: 10px;">
+                <div class="form-group">
+                    <label>Nombre o designacion</label>
+                    <input type="text" id="asteroid-name" placeholder="Ej: Apophis, Bennu, Eros...">
+                </div>
+                <button class="btn btn-primary" id="btn-add-asteroid" onclick="fetchAsteroid()">
+                    > Buscar y Dibujar
+                </button>
+                <p id="sbdb-status" style="font-size:0.65rem;color:var(--text-dim);margin-top:5px;height:12px"></p>
+            </div>
+
+            <div class="sidebar-section-title">Cuerpos actuales</div>
+
+            <div id="body-list" class="body-list">
+                <!-- Se rellena por JavaScript -->
+            </div>
+        </nav>
+
+        <!-- MAIN CONTENT (CANVAS) -->
+        <main class="main-content">
+            <div id="canvas-container">
+                <canvas id="orbit-canvas"></canvas>
+                <div id="tooltip"></div>
+            </div>
+        </main>
+
+    </div>
+
+    <!-- Scripts matematicos y logica del mapa -->
+    <script src="mapa.js"></script>
+</body>
+
+</html>

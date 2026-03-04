@@ -1,0 +1,218 @@
+/* ========================================
+   NASA ORBIT MAP — RAW DEBUGGER STYLE
+   ======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+:root {
+    --bg: #1a1a1a;
+    --bg-alt: #222;
+    --bg-input: #2a2a2a;
+    --border: #444;
+    --text: #ccc;
+    --text-dim: #888;
+    --text-bright: #eee;
+    --green: #7a9f7a;
+    --cyan: #7a9fb0;
+    --orange: #b09060;
+    --red: #b07070;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { font-size: 13px; }
+
+body {
+    font-family: 'JetBrains Mono', 'Consolas', monospace;
+    background: var(--bg);
+    color: var(--text);
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* --- Layout --- */
+.app-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    grid-template-rows: auto 1fr;
+    height: 100vh;
+}
+
+/* --- Topbar --- */
+.topbar {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 6px 12px;
+    background: #111;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.85rem;
+}
+
+.topbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--orange);
+    font-weight: 700;
+}
+
+.topbar-controls {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 20px;
+}
+
+.topbar-stats {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.75rem;
+    color: var(--text-dim);
+}
+
+.stat-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    display: inline-block;
+}
+.stat-dot.green { background: var(--green); }
+
+/* --- Sidebar --- */
+.sidebar {
+    background: #111;
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    font-size: 0.8rem;
+}
+
+.sidebar-section-title {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-dim);
+    padding: 12px 10px 4px;
+    border-top: 1px solid #333;
+}
+
+.sidebar-section-title:first-child { border-top: none; }
+
+/* --- Forms & Buttons --- */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.form-group label {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+}
+
+.form-group input {
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    padding: 5px 6px;
+    font-family: inherit;
+    font-size: 0.8rem;
+    color: var(--text);
+    outline: none;
+    width: 100%;
+}
+
+.form-group input:focus { border-color: var(--cyan); }
+
+.form-group input[type="range"] {
+    padding: 0;
+    cursor: ew-resize;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 5px 10px;
+    border: 1px solid var(--border);
+    font-family: inherit;
+    font-size: 0.78rem;
+    cursor: pointer;
+    background: var(--bg-input);
+    color: var(--text);
+}
+
+.btn:hover { border-color: var(--text-dim); color: var(--text-bright); }
+
+.btn-primary { background: #333; color: var(--cyan); border-color: var(--cyan); }
+.btn-primary:hover { background: #223; }
+.btn-primary:disabled { opacity: 0.5; cursor: wait; }
+
+/* --- Body List --- */
+.body-list {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 6px;
+}
+
+.body-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    padding: 4px;
+    border: 1px solid transparent;
+}
+
+.body-color {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.body-name { flex: 1; color: var(--text-bright); }
+.body-type { font-size: 0.6rem; color: var(--text-dim); text-transform: uppercase; }
+
+/* --- Canvas Area --- */
+.main-content {
+    position: relative;
+    background: #000;
+    overflow: hidden;
+    cursor: crosshair;
+}
+
+#canvas-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#tooltip {
+    position: absolute;
+    pointer-events: none;
+    background: rgba(0, 0, 0, 0.85);
+    border: 1px solid var(--border);
+    padding: 6px 10px;
+    color: var(--text-bright);
+    font-size: 0.7rem;
+    display: none;
+    z-index: 100;
+    white-space: nowrap;
+}

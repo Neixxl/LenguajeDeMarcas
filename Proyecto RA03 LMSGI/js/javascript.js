@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mostrarEleccion(document.getElementById('jugada-cpu'), eleccionCPU, "CPU");
 
             setTimeout(() => {
-                // Actualizo marcadores globales segun resultado
+                // Actualizo marcadores segun resultado
                 if (resultado === "victoria") victorias++;
                 else if (resultado === "derrota") derrotas++;
                 else empates++;
@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const tituloEstadisticas = document.getElementById('titulo-estadisticas');
         if (tituloEstadisticas) {
             tituloEstadisticas.textContent = "¡Batalla!";
-            tituloEstadisticas.className = ""; // Limpio clases de ganador/perdedor
+            tituloEstadisticas.className = "mensaje-resultado"; // Limpio clases de ganador/perdedor
         }
 
         resultadoJugada.textContent = "";
@@ -237,9 +237,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const tituloEstadisticas = document.getElementById('titulo-estadisticas');
 
         if (tituloEstadisticas) {
-            if (resultado === "victoria") tituloEstadisticas.className = "ganador";
-            else if (resultado === "derrota") tituloEstadisticas.className = "perdedor";
-            else tituloEstadisticas.className = "empate";
+            // Aplico la clase de color al titulo segun el resultado
+            if (resultado === "victoria") tituloEstadisticas.className = "mensaje-resultado ganador";
+            else if (resultado === "derrota") tituloEstadisticas.className = "mensaje-resultado perdedor";
+            else tituloEstadisticas.className = "mensaje-resultado empate";
 
             let descripcion = "";
 
@@ -267,6 +268,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     tituloEstadisticas.textContent = "¡Has perdido! " + descripcion;
                 }
             }
+
+            // Aplico la clase de color tambien al mensaje de resultado
+            if (resultado === "victoria") resultadoJugada.className = "mensaje-resultado ganador";
+            else if (resultado === "derrota") resultadoJugada.className = "mensaje-resultado perdedor";
+            else resultadoJugada.className = "mensaje-resultado empate";
         }
     }
     //-----------------------------------------------------------------------------------

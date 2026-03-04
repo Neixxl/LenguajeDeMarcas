@@ -1,0 +1,5 @@
+He hecho todo lo optativo, eso incluye:
+
+- Mostrar las reglas
+- Resetear el juego
+- Manejar las pulsaciones de los botones con las teclas

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="NASA API Debugger">
+    <title>NASA API Debugger</title>
+    <meta name="description" content="Herramienta de debug y testing para todos los endpoints de la API de NASA.">
+    <link rel="stylesheet" href="debug.css">
+</head>
+
+<body>
+    <div class="app-layout">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+            <div class="topbar-brand">
+                <span class="logo">&gt;</span>
+                <span>NASA API Debugger</span>
+            </div>
+
+            <div class="topbar-api-key">
+                <label for="api-key-input">API Key:</label>
+                <input type="text" id="api-key-input" value="RGNk9x6JFIU34wqvfX1PYeCtaH56jEuB11tahyNp"
+                    placeholder="Tu API key de NASA">
+            </div>
+
+            <div class="topbar-stats">
+                <div class="topbar-proxy" style="margin-right: 15px; display: flex; align-items: center; gap: 5px;">
+                    <input type="checkbox" id="use-proxy" style="width: auto; cursor: pointer;">
+                    <label for="use-proxy" style="font-size: 0.7rem; color: var(--text-dim); cursor: pointer;">CORS
+                        Proxy</label>
+                </div>
+                <span><span class="stat-dot green"></span> api.nasa.gov</span>
+            </div>
+        </header>
+
+        <!-- SIDEBAR -->
+        <nav class="sidebar">
+            <div class="sidebar-section-title">Herramientas Interactivas</div>
+
+            <a href="mapa.html" class="sidebar-item" style="text-decoration: none;">
+                <span class="icon" style="color: var(--orange);">></span>
+                <span style="color: var(--orange); font-weight: bold;">Solar System Map</span>
+                <span class="badge" style="color: var(--orange);">[NUEVO]</span>
+            </a>
+
+            <div class="sidebar-section-title">Imagenes y multimedia</div>
+
+            <button class="sidebar-item active" data-endpoint="apod" onclick="selectEndpoint('apod')">
+                <span class="icon">></span>
+                <span>APOD</span>
+                <span class="badge">Imagen del dia</span>
+            </button>
+
+            <button class="sidebar-item" data-endpoint="mars" onclick="selectEndpoint('mars')">
+                <span class="icon">></span>
+                <span>Mars Rover</span>
+                <span class="badge">Fotos</span>
+            </button>
+
+            <button class="sidebar-item" data-endpoint="epic" onclick="selectEndpoint('epic')">
+                <span class="icon">></span>
+                <span>EPIC</span>
+                <span class="badge">Tierra</span>
+            </button>
+
+            <button class="sidebar-item" data-endpoint="imagelib" onclick="selectEndpoint('imagelib')">
+                <span class="icon">></span>
+                <span>Image Library</span>
+                <span class="badge">Busqueda</span>
+            </button>
+
+            <button class="sidebar-item" data-endpoint="earth" onclick="selectEndpoint('earth')">
+                <span class="icon">></span>
+                <span>Earth</span>
+                <span class="badge">Landsat</span>
+            </button>
+
+            <div class="sidebar-section-title">Cuerpos celestes y trayectorias</div>
+
+            <button class="sidebar-item" data-endpoint="neows" onclick="selectEndpoint('neows')">
+                <span class="icon">></span>
+                <span>NeoWs</span>
+                <span class="badge">Asteroides</span>
+            </button>
+
+            <button class="sidebar-item" data-endpoint="sbdb" onclick="selectEndpoint('sbdb')">
+                <span class="icon">></span>
+                <span>SBDB</span>
+                <span class="badge">Detalle objeto</span>
+            </button>
+
+            <button class="sidebar-item" data-endpoint="cad" onclick="selectEndpoint('cad')">
+                <span class="icon">></span>
+                <span>Close Approach</span>
+                <span class="badge">Trayectorias</span>
+            </button>
+
+            <button class="sidebar-item" data-endpoint="fireball" onclick="selectEndpoint('fireball')">
+                <span class="icon">></span>
+                <span>Fireballs</span>
+                <span class="badge">Meteoritos</span>
+            </button>
+
+            <button class="sidebar-item" data-endpoint="exoplanet" onclick="selectEndpoint('exoplanet')">
+                <span class="icon">></span>
+                <span>Exoplanets</span>
+                <span class="badge">Planetas</span>
+            </button>
+
+            <button class="sidebar-item" data-endpoint="sentry" onclick="selectEndpoint('sentry')">
+                <span class="icon">></span>
+                <span>Sentry</span>
+                <span class="badge">Riesgo impacto</span>
+            </button>
+
+            <button class="sidebar-item" data-endpoint="nhats" onclick="selectEndpoint('nhats')">
+                <span class="icon">></span>
+                <span>NHATS</span>
+                <span class="badge">NEOs accesibles</span>
+            </button>
+
+            <div class="sidebar-section-title">Datos terrestres y tecnologia</div>
+
+            <button class="sidebar-item" data-endpoint="donki" onclick="selectEndpoint('donki')">
+                <span class="icon">></span>
+                <span>DONKI</span>
+                <span class="badge">Clima espacial</span>
+            </button>
+
+            <button class="sidebar-item" data-endpoint="eonet" onclick="selectEndpoint('eonet')">
+                <span class="icon">></span>
+                <span>EONET</span>
+                <span class="badge">Eventos naturales</span>
+            </button>
+
+            <button class="sidebar-item" data-endpoint="techtransfer" onclick="selectEndpoint('techtransfer')">
+                <span class="icon">></span>
+                <span>TechTransfer</span>
+                <span class="badge">Patentes</span>
+            </button>
+
+            <button class="sidebar-item" data-endpoint="tle" onclick="selectEndpoint('tle')">
+                <span class="icon">></span>
+                <span>TLE Satellites</span>
+                <span class="badge">Orbitas</span>
+            </button>
+
+            <button class="sidebar-item" data-endpoint="genelab" onclick="selectEndpoint('genelab')">
+                <span class="icon">></span>
+                <span>GeneLab</span>
+                <span class="badge">Biologia espacial</span>
+            </button>
+
+            <div class="sidebar-section-title" style="margin-top:auto">Utilidades</div>
+
+            <button class="sidebar-item" onclick="switchResultsTab('history')">
+                <span class="icon">#</span>
+                <span>Historial</span>
+                <span class="badge" id="history-count">0</span>
+            </button>
+        </nav>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <!-- Panel de formulario -->
+            <section class="form-panel" id="form-panel-content">
+                <!-- Se rellena dinamicamente por JS -->
+            </section>
+
+            <!-- Panel de resultados -->
+            <section class="results-panel">
+
+                <!-- URL generada -->
+                <div class="url-display">
+                    <span class="url-method">GET</span>
+                    <span class="url-text" id="url-text">La URL aparecera aqui al enviar una request...</span>
+                    <button class="url-copy-btn" onclick="copyUrl()" title="Copiar URL">[copy]</button>
+                </div>
+
+                <!-- Tabs de resultados -->
+                <div class="results-topbar">
+                    <button class="results-tab active" data-tab="preview"
+                        onclick="switchResultsTab('preview')">Preview</button>
+                    <button class="results-tab" data-tab="json" onclick="switchResultsTab('json')">{ } JSON</button>
+                    <button class="results-tab" data-tab="history"
+                        onclick="switchResultsTab('history')">Historial</button>
+
+                    <!-- Meta info de la respuesta -->
+                    <div id="response-meta" class="response-meta" style="margin-left:auto"></div>
+                </div>
+
+                <!-- Cuerpo de resultados -->
+                <div class="results-body" id="results-body">
+                    <div class="empty-state">
+                        <div class="icon">&gt;_</div>
+                        <h3>Listo para explorar</h3>
+                        <p>Configura los parametros y pulsa "Enviar Request" para ver los datos de la API de NASA.</p>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="debug.js"></script>
+</body>
+
+</html>

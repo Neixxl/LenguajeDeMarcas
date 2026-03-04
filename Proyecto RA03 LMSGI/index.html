@@ -8,7 +8,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500&display=swap"
         rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="imagenes/spock-hand-gesture.svg">
+    <link rel="icon" type="image/x-icon" href="images/spock-hand-gesture.svg">
 </head>
 
 <body>
@@ -69,7 +69,7 @@
 
         <div class="paneles-arriba">
             <div class="contenedor-resultado panel-batalla">
-                <h2 id="titulo-estadisticas">Batalla!</h2>
+                <p id="titulo-estadisticas" class="mensaje-resultado">Batalla!</p>
                 <div class="estadisticas-juego">
                     <div class="panel-estadistica">
                         <span class="valor-estadistica" id="victorias">0</span>
@@ -88,17 +88,13 @@
                 </div>
             </div>
 
-            <div class="jugador">
-                <div class="etiqueta-jugador">
-                    <button class="boton-eleccion-jugada" id="reiniciar-juego">
-                        <span>REINICIAR JUEGO</span>
-                    </button>
-                </div>
-                <div>
-                    <button class="boton-eleccion-jugada" id="mostrar-reglas">
-                        <span>MOSTRAR REGLAS</span>
-                    </button>
-                </div>
+            <div class="contenedor-jugadores">
+                <button class="boton-eleccion-jugada" id="reiniciar-juego">
+                    <span>REINICIAR JUEGO</span>
+                </button>
+                <button class="boton-eleccion-jugada" id="mostrar-reglas">
+                    <span>MOSTRAR REGLAS</span>
+                </button>
             </div>
         </div>
 
