@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASA 3D Orbit Map — Spacekit.js</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+        #main-container {
+            width: 100vw;
+            height: 100vh;
+        }
+        .ui-overlay {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border-left: 3px solid #ffcc00;
+            pointer-events: none;
+        }
+        h1 {
+            margin: 0 0 5px 0;
+            font-size: 1.2rem;
+            color: #ffcc00;
+        }
+        p {
+            margin: 0;
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+        .controls-hint {
+            margin-top: 10px;
+            font-size: 0.7rem;
+            color: #aaa;
+        }
+    </style>
+    <!-- Dependencias de Spacekit (Three.js es requerido) -->
+    <script src="https://typpo.github.io/spacekit/src/lib/three.full.min.js"></script>
+    <script src="https://typpo.github.io/spacekit/build/spacekit.js"></script>
+</head>
+<body>
+
+    <div class="ui-overlay">
+        <h1>NASA 3D Orbit Map</h1>
+        <p>Visualización del Sistema Solar Interior</p>
+        <div class="controls-hint">
+            • Click + Arrastrar: Rotar<br>
+            • Rueda: Zoom<br>
+            • Click Derecho: Panorámica
+        </div>
+    </div>
+
+    <div id="main-container"></div>
+
+    <script>
+        // 1. Inicializar la simulación
+        const viz = new Spacekit.Simulation(document.getElementById('main-container'), {
+            basePath: 'https://typpo.github.io/spacekit/src',
+            startDate: new Date(),
+        });
+
+        // 2. Añadir el fondo de estrellas (Skybox)
+        viz.createStars();
+
+        // 3. Añadir el Sol
+        viz.createObject('sun', Spacekit.SpaceObjectPresets.SUN);
+
+        // 4. Añadir Planetas Interiores con datos reales
+        // La librería ya incluye constantes orbitales básicas
+        viz.createObject('mercury', Spacekit.SpaceObjectPresets.MERCURY);
+        viz.createObject('venus', Spacekit.SpaceObjectPresets.VENUS);
+        viz.createObject('earth', {
+            ...Spacekit.SpaceObjectPresets.EARTH,
+            labelText: 'Tierra',
+        });
+        viz.createObject('mars', Spacekit.SpaceObjectPresets.MARS);
+
+        // 5. Ejemplo: Añadir un asteroide famoso (Apophis)
+        // Usamos elementos orbitales típicos
+        const apophis = viz.createObject('apophis', {
+            labelText: 'Apophis (Asteroide)',
+            color: 0xff4444,
+            ephem: new Spacekit.Ephem({
+                a: 0.9224,
+                e: 0.1912,
+                i: 3.331,
+                om: 204.44,
+                w: 126.40,
+                ma: 215.52,
+                epoch: 2454800.5,
+            }, 'deg'),
+        });
+
+        // Ajustar cámara inicial
+        viz.getViewer().getOrbitControls().target.set(0, 0, 0);
+    </script>
+</body>
+</html>

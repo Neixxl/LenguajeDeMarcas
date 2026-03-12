@@ -181,8 +181,33 @@ body {
     border-radius: 50%;
 }
 
-.body-name { flex: 1; color: var(--text-bright); }
+.body-name { flex: 1; color: var(--text-bright); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .body-type { font-size: 0.6rem; color: var(--text-dim); text-transform: uppercase; }
+
+.btn-delete {
+    background: transparent;
+    border: none;
+    color: var(--text-dim);
+    font-size: 1.2rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.btn-delete:hover {
+    color: var(--red);
+    transform: scale(1.2);
+}
+
+.body-item:hover {
+    background: #1a1a1a;
+    border-color: #333;
+}
+
 
 /* --- Canvas Area --- */
 .main-content {

@@ -44,16 +44,22 @@ function getJulianDate(date) {
 }
 
 // Resolver Ecuación de Kepler: M = E - e*sin(E)
-// Usamos el método de Newton-Raphson para encontrar la Anomalía Excéntrica (E)
+// M = Anomalía Media (conocida por el tiempo)
+// E = Anomalía Excéntrica (lo que queremos calcular)
+// e = Excentricidad de la elipse
+// Usamos el método de Newton-Raphson para encontrar E de forma iterativa.
 function solveKepler(M, e) {
     let E = M;
     for (let i = 0; i < 15; i++) {
+        // La función f(E) = E - e*sin(E) - M
+        // Su derivada f'(E) = 1 - e*cos(E)
         let delta = (E - e * Math.sin(E) - M) / (1 - e * Math.cos(E));
         E -= delta;
         if (Math.abs(delta) < 1e-6) break;
     }
     return E;
 }
+
 
 // --- 3. Clase CieloCelestial ---
 class CelestialBody {
@@ -72,9 +78,13 @@ class CelestialBody {
         this.n = parseFloat(elements.n) * DEG_TO_RAD; // Movimiento medio (rad/dia)
         this.epoch = parseFloat(elements.epoch_jd); // Fecha del epoch (JD)
 
-        // Calcular la órbita estática (100 puntos) para dibujarla rápido
+        // Precalcular los puntos de la elipse entera (para dibujarla)
         this.orbitPath = this.calculateOrbitPath();
+        
+        // ID único para gestión de UI
+        this.id = 'body-' + Math.random().toString(36).substr(2, 9);
     }
+
 
     // Calcular posición X, Y para un día Juliano específico
     getPositionAt(jd) {
@@ -182,7 +192,7 @@ async function fetchAsteroid() {
 
             // Añadir al mapa
             const name = data.object.fullname;
-            celestialBodies.push(new CelestialBody(name, 'asteroid', '#ff4444', {
+            const newBody = new CelestialBody(name, 'asteroid', '#ff4444', {
                 a: elems.a,
                 e: elems.e,
                 i: elems.i,
@@ -191,7 +201,8 @@ async function fetchAsteroid() {
                 ma: elems.ma,
                 n: elems.n,
                 epoch_jd: data.orbit.epoch
-            }));
+            });
+            celestialBodies.push(newBody);
 
             status.textContent = '¡Añadido con éxito!';
             document.getElementById('asteroid-name').value = '';
@@ -205,16 +216,27 @@ async function fetchAsteroid() {
     btn.textContent = '> Buscar y Dibujar';
 }
 
+function removeBody(id) {
+    celestialBodies = celestialBodies.filter(b => b.id !== id);
+    updateUIList();
+}
+
 function updateUIList() {
     const list = document.getElementById('body-list');
     list.innerHTML = celestialBodies.map(b => `
         <div class="body-item">
-            <div class="body-color" style="background:${b.color}"></div>
-            <span class="body-name">${b.name}</span>
-            <span class="body-type">${b.type}</span>
+            <div style="display:flex; align-items:center; gap:8px; flex:1">
+                <div class="body-color" style="background:${b.color}"></div>
+                <div style="display:flex; flex-direction:column">
+                    <span class="body-name">${b.name}</span>
+                    <span class="body-type">${b.type}</span>
+                </div>
+            </div>
+            ${b.type === 'asteroid' ? `<button class="btn-delete" onclick="removeBody('${b.id}')" title="Eliminar">&times;</button>` : ''}
         </div>
     `).join('');
 }
+
 
 
 // --- 6. Renderizado General ---

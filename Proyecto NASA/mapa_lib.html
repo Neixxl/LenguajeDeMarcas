@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASA Orbit Map (Library Version)</title>
+    <link rel="stylesheet" href="mapa.css">
+</head>
+<body>
+    <div class="app-layout">
+        <!-- TOPBAR -->
+        <header class="topbar">
+            <div class="topbar-brand">
+                <span class="logo">&gt;</span>
+                <span>NASA Orbit Map + Orb.js</span>
+            </div>
+            <div class="topbar-controls">
+                <button class="btn" onclick="timeScale = 0">||</button>
+                <button class="btn" onclick="timeScale = 1">1x</button>
+                <button class="btn" onclick="timeScale = 10">10x</button>
+                <span style="font-size:0.75rem;color:var(--text-dim);margin-left:10px" id="current-date-ui"></span>
+            </div>
+            <div class="topbar-stats">
+                <a href="mapa.html" style="color:var(--text-dim);text-decoration:none;font-size:0.7rem;margin-right:15px">&lt; Volver a Manual 2D</a>
+                <span><span class="stat-dot green"></span> Powered by orb.js</span>
+            </div>
+        </header>
+
+        <!-- SIDEBAR -->
+        <nav class="sidebar">
+            <div class="sidebar-section-title">Navegacion</div>
+            <div style="padding: 10px;">
+                <div class="form-group">
+                    <label>Zoom</label>
+                    <input type="range" min="10" max="1000" value="150" oninput="zoom = parseInt(this.value)">
+                </div>
+            </div>
+
+            <div class="sidebar-section-title">Añadir desde API</div>
+            <div style="padding: 10px; display: flex; flex-direction: column; gap: 10px;">
+                <div class="form-group">
+                    <label>Nombre del objeto</label>
+                    <input type="text" id="asteroid-name" placeholder="Ej: Ceres, Eros, 2024 BX1...">
+                </div>
+                <div style="display: flex; align-items: center; gap: 6px;">
+                    <input type="checkbox" id="use-proxy" style="width: auto;">
+                    <label for="use-proxy" style="font-size: 0.65rem; color: var(--text-dim); cursor: pointer;">Forzar Proxy (si el auto falla)</label>
+                </div>
+                <button class="btn btn-primary" id="btn-add-asteroid" onclick="fetchAsteroid()">
+                    > Cargar Órbita
+                </button>
+
+                <p id="sbdb-status" style="font-size:0.65rem;color:var(--text-dim);margin-top:5px"></p>
+            </div>
+
+            <div class="sidebar-section-title">Objetos en Escena</div>
+            <div id="body-list" class="body-list"></div>
+        </nav>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+            <div id="canvas-container">
+                <canvas id="orbit-canvas"></canvas>
+            </div>
+        </main>
+    </div>
+
+    <!-- Librería Astronómica -->
+    <script src="https://cdn.jsdelivr.net/gh/lizard-isana/orb.js@v2.4/build/min/orb.v2.min.js"></script>
+    <script src="mapa_lib.js"></script>
+</body>
+</html>
