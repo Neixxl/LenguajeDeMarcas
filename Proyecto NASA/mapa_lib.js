@@ -100,13 +100,14 @@ async function fetchAsteroid() {
 
     // Lista de proxies para intentar en secuencia si falla el anterior
     const proxies = [
+        (url) => `http://localhost:3000/api/nasa?sstr=${encodeURIComponent(input)}`, // Proxy local prioritario
         (url) => `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`,
         (url) => `https://api.cors.lol/?url=${encodeURIComponent(url)}`,
         (url) => `https://thingproxy.freeboard.io/fetch/${url}`
     ];
 
     let data = null;
-    let url = `https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=${encodeURIComponent(input)}&orbit=1`;
+    let url = `https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=${encodeURIComponent(input)}`;
 
     try {
         if (!useProxyCheck) {

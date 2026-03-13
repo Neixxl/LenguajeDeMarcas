@@ -1,0 +1,264 @@
+/* ==========================================================================
+   ELEMENTOS BASE / ESTRUCTURA
+   ========================================================================== */
+
+:root {
+    --bg-green: rgba(6, 26, 6);
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background-color: var(--bg-green);
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 0;
+    padding-top: 1rem;
+}
+
+.page-explore header h1 {
+    display: none;
+}
+
+main {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    /* Default for index.html (map) */
+}
+
+.mainScrollable {
+    display: block !important;
+    overflow-y: auto !important;
+}
+
+
+h1 {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul:not(.fo-tabs) {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
+
+/* ==========================================================================
+   FALLOUT THEME OVERRIDES (Estilos de fallout.css modificados)
+   ========================================================================== */
+
+/* Colores y textos */
+.fg-pb {
+    margin: 0;
+}
+
+/* Pestañas (Tabs) */
+ul.fo-tabs {
+    list-style: none;
+    display: flex !important;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem 0 0 0;
+    padding: 0 2rem;
+    position: relative;
+}
+
+/* Ocultamos las esquinas raras del fo-tabs */
+.fo-tabs::before,
+.fo-tabs::after {
+    display: none;
+}
+
+/* Pestaña activa: se extiende 2px hacia abajo para tapar el borde superior de main */
+.fo-tab-active {
+    margin-bottom: -2px !important;
+    z-index: 1;
+    position: relative;
+}
+
+/* ==========================================================================
+   PROJECT SPECIFIC STYLES (NASA Project)
+   ========================================================================== */
+
+/* Layout principal */
+.orbitMap {
+    flex: 85;
+    /* Uso flex en vez de max-width porque se raya con los margins */
+    border: 2px solid rgb(var(--fo-fg));
+    margin: 0 1rem 1rem 0.5rem;
+    padding: 1rem;
+    background-color: rgba(var(--fo-bg));
+    box-shadow: inset 0 0 1rem rgba(var(--fo-bg));
+}
+
+.mainContainer {
+    max-width: 800px;
+    margin: 0 auto 2rem auto;
+    /* Margin superior 0 para conectar con el nav */
+    border: 2px solid rgb(var(--fo-fg));
+    padding: 2rem;
+    background-color: rgba(var(--fo-bg));
+    box-shadow: inset 0 0 1rem rgba(var(--fo-bg));
+    flex: none;
+    /* Evitamos que el flex:1 del main lo estire */
+}
+
+.explorarBtn {
+    border-style: none;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    margin-top: 1rem;
+    color: var(--bg-green)
+}
+
+.mainContainer .explorarBtnContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.btnLarge {
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+}
+
+.textCenter {
+    text-align: center;
+}
+
+.menuControl {
+    flex: 15;
+    border: 2px solid rgb(var(--fo-fg));
+    background-color: rgba(var(--fo-bg));
+    margin: 0 0.5rem 1rem 1rem;
+    padding: 1rem;
+    min-width: 180px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    border-top: 2px solid rgb(var(--fo-fg));
+    background-color: rgba(var(--fo-bg));
+    color: rgb(var(--fo-fg));
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+
+/* Controles de Tiempo */
+.timeControl {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.timeControl div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.controlsRow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.controlsRow input[type="range"] {
+    flex: 1;
+}
+
+/* Botón Pausa */
+.pausarBtn {
+    border-style: none;
+}
+
+.pausarBtn img {
+    width: 1.5rem;
+    filter: invert(1) brightness(2);
+}
+
+/* ==========================================================================
+   ANIMACIONES CRT
+   ========================================================================== */
+
+@keyframes crtPowerOn {
+    0% {
+        transform: scaleY(0) scaleX(0);
+        opacity: 0;
+        filter: brightness(5);
+    }
+
+    50% {
+        transform: scaleY(0.01) scaleX(1);
+        opacity: 1;
+        filter: brightness(2);
+    }
+
+    100% {
+        transform: scaleY(1) scaleX(1);
+        opacity: 1;
+        filter: brightness(1);
+    }
+}
+
+@keyframes crtQuickTransition {
+    0% {
+        filter: brightness(2) contrast(1.2) sepia(0.5);
+        opacity: 0.7;
+        transform: scale(1.005);
+    }
+
+    40% {
+        filter: brightness(1.2) contrast(1.1) sepia(0.2);
+        opacity: 0.9;
+        transform: scale(0.998);
+    }
+
+    70% {
+        filter: brightness(1.5) contrast(1.2);
+        opacity: 0.8;
+    }
+
+    100% {
+        filter: brightness(1) contrast(1) sepia(0);
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes crtAnimation {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 10000%;
+    }
+}
+
+.powerOn {
+    animation: crtAnimation 100s linear infinite, crtPowerOn 0.4s ease-out forwards !important;
+}
+
+.navTransition {
+    animation: crtAnimation 100s linear infinite, crtQuickTransition 0.3s ease-in-out forwards !important;
+}

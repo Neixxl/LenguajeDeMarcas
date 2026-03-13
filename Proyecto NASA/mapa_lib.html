@@ -40,7 +40,15 @@
             <div style="padding: 10px; display: flex; flex-direction: column; gap: 10px;">
                 <div class="form-group">
                     <label>Nombre del objeto</label>
-                    <input type="text" id="asteroid-name" placeholder="Ej: Ceres, Eros, 2024 BX1...">
+                    <input type="text" id="asteroid-name" list="asteroid-examples" placeholder="Ej: Ceres, Eros, 2024 BX1...">
+                    <datalist id="asteroid-examples">
+                        <option value="Ceres"></option>
+                        <option value="Eros"></option>
+                        <option value="Vesta"></option>
+                        <option value="Apophis"></option>
+                        <option value="Bennu"></option>
+                        <option value="Ryugu"></option>
+                    </datalist>
                 </div>
                 <div style="display: flex; align-items: center; gap: 6px;">
                     <input type="checkbox" id="use-proxy" style="width: auto;">
