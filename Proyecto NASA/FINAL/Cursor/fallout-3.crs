@@ -1,0 +1,36 @@
+﻿[Wait]
+Path=BUSY.ani
+
+[Hand]
+Path=LINK SELECT.ani
+
+[Arrow]
+Path=NORMAL.ani
+
+[UpArrow]
+Path=ALTERNATIVE.ani
+
+[Help]
+Path=HELP.ani
+
+[SizeAll]
+Path=MOVE.ani
+
+[Crosshair]
+Path=PRECISION.ani
+
+[SizeNWSE]
+Path=RESIZE 1.ani
+
+[SizeNESW]
+Path=RESIZE 2.ani
+
+[IBeam]
+Path=TEXT SELECT.ani
+
+[No]
+Path=UNAVABIBLE.ani
+
+[AppStarting]
+Path=WIB.ani
+
